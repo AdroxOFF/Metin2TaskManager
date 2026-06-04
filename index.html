@@ -301,53 +301,10 @@
       50% { opacity: 0.3; }
     }
 
-    /* WEEK NAVIGATOR (above weekly section) */
-    .week-nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      background: #0f0f1a;
-      border-bottom: 1px solid var(--border-dim);
-    }
-
-    .week-nav-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--gold-bright);
-      flex-shrink: 0;
-    }
-
-    .week-nav-btn {
-      background: transparent;
-      border: 1px solid var(--gold-dim);
-      border-radius: 4px;
-      color: var(--gold-mid);
-      cursor: pointer;
-      font-size: 14px;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      flex-shrink: 0;
-    }
-    .week-nav-btn:hover {
-      border-color: var(--gold-bright);
-      color: var(--gold-bright);
-    }
-
-    .week-range {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-secondary);
-    }
-
     /* ACCOUNTS GRID */
     #accounts-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
       gap: 20px;
     }
 
@@ -453,15 +410,10 @@
       text-align: left;
     }
 
-    .char-table th.task-col {
-      text-align: center;
-      min-width: 54px;
-    }
-
     /* Day header cells */
     .char-table th.day-col {
       text-align: center;
-      min-width: 36px;
+      min-width: 44px;
       padding: 4px 3px 8px;
     }
 
@@ -505,8 +457,6 @@
     .day-col.past .day-col-name { color: var(--text-dim); opacity: 0.5; }
     .day-col.past .day-col-date { color: var(--text-dim); opacity: 0.4; }
 
-    .char-table th .col-label-daily  { color: var(--text-purple); }
-
     .char-table tbody tr {
       border-bottom: 1px solid #1a1a2a;
       transition: background 0.15s ease;
@@ -515,11 +465,19 @@
     .char-table tbody tr:hover { background: var(--bg-card-hover); }
 
     .char-table td {
-      padding: 7px 8px;
+      padding: 6px 8px;
       vertical-align: middle;
     }
 
+    /* Character name cell — two label rows */
     .char-name-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      min-width: 110px;
+    }
+
+    .char-name-top {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -540,20 +498,55 @@
       color: var(--text-primary);
     }
 
-    .char-table td.task-col { text-align: center; }
-    .char-table td.day-cell { text-align: center; padding: 7px 3px; }
+    /* Task label rows inside the name cell */
+    .char-task-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      padding-left: 14px;
+      margin-top: 4px;
+    }
 
-    /* SECTION DIVIDER inside table */
-    .section-header-row td {
-      padding: 6px 8px 4px;
-      font-family: var(--font-display);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--border-dim);
-      background: #0f0f1880;
+    .task-label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .task-label-latok {
+      color: var(--gold-mid);
+    }
+
+    .task-label-szilank {
+      color: var(--text-purple);
+    }
+
+    .task-label-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .task-label-dot-gold   { background: var(--gold-mid); }
+    .task-label-dot-purple { background: var(--purple-mid); }
+
+    /* Day cells — stacked double checkbox */
+    .char-table td.day-cell {
+      text-align: center;
+      padding: 5px 3px;
+      vertical-align: middle;
+    }
+
+    .day-cell-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
     }
 
     /* CUSTOM CHECKBOXES */
@@ -567,8 +560,8 @@
     .cb-wrap input[type="checkbox"] { display: none; }
 
     .cb-box {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border-radius: 4px;
       border: 1.5px solid;
       display: flex;
@@ -579,29 +572,7 @@
       flex-shrink: 0;
     }
 
-    /* Daily checkbox — purple theme */
-    .cb-daily .cb-box {
-      border-color: var(--purple-mid);
-      background: #1a0a3322;
-    }
-    .cb-daily input:checked ~ .cb-box {
-      border-color: var(--purple-bright);
-      background: var(--purple-dim);
-      box-shadow: 0 0 8px #a855f766;
-    }
-    .cb-daily .cb-box::after {
-      content: '';
-      display: none;
-      width: 5px;
-      height: 10px;
-      border: 2px solid var(--purple-bright);
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg) translate(-1px, -1px);
-    }
-    .cb-daily input:checked ~ .cb-box::after { display: block; }
-
-    /* Weekly day checkbox — gold theme, compact */
+    /* Weekly day checkbox — gold theme (Látók Párbaja) */
     .cb-day .cb-box {
       width: 20px;
       height: 20px;
@@ -626,8 +597,34 @@
     }
     .cb-day input:checked ~ .cb-box::after { display: block; }
 
+    /* Weekly day checkbox — purple theme (Szilizés) */
+    .cb-szilank .cb-box {
+      width: 20px;
+      height: 20px;
+      border-color: var(--purple-mid);
+      background: #1a0a3322;
+      border-radius: 3px;
+    }
+    .cb-szilank input:checked ~ .cb-box {
+      border-color: var(--purple-bright);
+      background: var(--purple-dim);
+      box-shadow: 0 0 6px #a855f755;
+    }
+    .cb-szilank .cb-box::after {
+      content: '';
+      display: none;
+      width: 4px;
+      height: 9px;
+      border: 2px solid var(--purple-bright);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg) translate(-1px, -1px);
+    }
+    .cb-szilank input:checked ~ .cb-box::after { display: block; }
+
     /* Past day cell dimmed */
-    .cb-day.past .cb-box {
+    .cb-day.past .cb-box,
+    .cb-szilank.past .cb-box {
       border-color: #2a2a3a;
       background: #0d0d1a;
       opacity: 0.55;
@@ -635,6 +632,12 @@
     .cb-day.past input:checked ~ .cb-box {
       border-color: #6b5a20;
       background: #2a1f04;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+    .cb-szilank.past input:checked ~ .cb-box {
+      border-color: #4a2a6a;
+      background: #1a0a30;
       box-shadow: none;
       opacity: 0.7;
     }
@@ -654,42 +657,7 @@
       padding: 6px 12px;
     }
 
-    /* WEEKLY SECTION LABEL */
-    .weekly-section-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 18px 4px;
-      border-top: 1px solid var(--border-dim);
-      background: #0e0e1a;
-    }
-
-    .weekly-section-title {
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold-mid);
-    }
-
-    .weekly-week-info {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-dim);
-      margin-left: auto;
-    }
-
-    /* Week navigation buttons in the card */
-    .week-nav-card {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 18px 8px;
-      background: #0e0e1a;
-      border-bottom: 1px solid var(--border-dim);
-    }
-
+    /* Week nav buttons */
     .wn-btn {
       background: transparent;
       border: 1px solid var(--gold-dim);
@@ -704,14 +672,6 @@
     .wn-btn:hover {
       border-color: var(--gold-bright);
       color: var(--gold-bright);
-    }
-
-    .wn-week-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-secondary);
-      flex: 1;
-      text-align: center;
     }
 
     .wn-today-btn {
@@ -911,11 +871,13 @@
   //            id: "chr_xxx",
   //            name: "Karakter neve",
   //            tasks: {
-  //              latokParbaja: false,   // napi
-  //              szilizes: false,       // napi
-  //              // Heti Látók Párbaja: per-day per-week storage
-  //              // weeklyLatok: { "2025-W22": { "Mon": true, "Tue": false, ... } }
-  //              weeklyLatok: {}
+  //              weeklyTasks: {
+  //                "2025-W22": {
+  //                  "Mon": { latok: false, szilank: false },
+  //                  "Tue": { latok: false, szilank: false },
+  //                  ...
+  //                }
+  //              }
   //            }
   //          }
   //        ]
@@ -926,15 +888,14 @@
   //  }
   // ============================================================
 
-  const STORAGE_KEY = 'gtt_data_v3';
+  const STORAGE_KEY = 'gtt_data_v4';
 
   // Per-account week offset (how many weeks forward/back from current)
-  // Stored in memory only (not persisted), reset on page load
   const accountWeekOffset = {};
 
-  const DAY_KEYS   = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const DAY_NAMES  = ['H', 'K', 'Sz', 'Cs', 'P', 'Szo', 'V'];
-  const DAY_FULL   = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap'];
+  const DAY_KEYS  = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const DAY_NAMES = ['H', 'K', 'Sz', 'Cs', 'P', 'Szo', 'V'];
+  const DAY_FULL  = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap'];
 
   // ---------- State ----------
   let state = loadState();
@@ -944,16 +905,31 @@
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        // Migrate old data if needed (v2 -> v3): convert weeklyLatok boolean to object
+        // Migrate old v3 data to v4
         (parsed.accounts || []).forEach(acc => {
           (acc.chars || []).forEach(ch => {
             if (!ch.tasks) ch.tasks = {};
-            // If weeklyLatok is boolean (old format), convert to object
-            if (typeof ch.tasks.weeklyLatok !== 'object' || ch.tasks.weeklyLatok === null) {
-              ch.tasks.weeklyLatok = {};
+
+            // If old boolean daily fields exist, remove them
+            delete ch.tasks.latokParbaja;
+            delete ch.tasks.szilizes;
+
+            // Migrate old weeklyLatok (per-day boolean) -> weeklyTasks (per-day object)
+            if (!ch.tasks.weeklyTasks) {
+              ch.tasks.weeklyTasks = {};
+              if (ch.tasks.weeklyLatok && typeof ch.tasks.weeklyLatok === 'object') {
+                Object.entries(ch.tasks.weeklyLatok).forEach(([wk, days]) => {
+                  ch.tasks.weeklyTasks[wk] = {};
+                  DAY_KEYS.forEach(dk => {
+                    ch.tasks.weeklyTasks[wk][dk] = {
+                      latok: !!(days && days[dk]),
+                      szilank: false
+                    };
+                  });
+                });
+              }
             }
-            // Remove old weeklySzilizes if present
-            delete ch.tasks.weeklySzilizes;
+            delete ch.tasks.weeklyLatok;
           });
         });
         return parsed;
@@ -974,17 +950,15 @@
   //  WEEK UTILITIES
   // ============================================================
 
-  // Returns the Monday of the week containing the given date
   function getMondayOfWeek(date) {
     const d = new Date(date);
-    const day = d.getDay(); // 0=Sun, 1=Mon, ...
+    const day = d.getDay();
     const diff = (day === 0) ? -6 : 1 - day;
     d.setDate(d.getDate() + diff);
     d.setHours(0, 0, 0, 0);
     return d;
   }
 
-  // ISO week key: "YYYY-Www"
   function getWeekKey(date) {
     const monday = getMondayOfWeek(date);
     const year = monday.getFullYear();
@@ -993,7 +967,6 @@
     return year + '-W' + String(weekNum).padStart(2, '0');
   }
 
-  // Returns array of 7 Date objects (Mon–Sun) for the week at offset
   function getWeekDates(offset) {
     const base = new Date();
     base.setDate(base.getDate() + offset * 7);
@@ -1005,12 +978,10 @@
     });
   }
 
-  // Format date as MM.DD
   function fmtDate(date) {
     return (date.getMonth() + 1) + '.' + String(date.getDate()).padStart(2, '0');
   }
 
-  // Is a date "today"?
   function isToday(date) {
     const now = new Date();
     return date.getFullYear() === now.getFullYear() &&
@@ -1018,11 +989,28 @@
            date.getDate() === now.getDate();
   }
 
-  // Is a date in the past (before today)?
   function isPast(date) {
     const now = new Date();
     now.setHours(0,0,0,0);
     return date < now;
+  }
+
+  // Returns the DAY_KEY for today (e.g. "Mon")
+  function todayDayKey() {
+    const day = new Date().getDay(); // 0=Sun
+    const map = [6, 0, 1, 2, 3, 4, 5]; // Sun->6, Mon->0 ... Sat->5
+    return DAY_KEYS[map[day]];
+  }
+
+  // ============================================================
+  //  HELPERS — ensure task slot exists
+  // ============================================================
+  function ensureTaskSlot(ch, weekKey, dayKey) {
+    if (!ch.tasks.weeklyTasks) ch.tasks.weeklyTasks = {};
+    if (!ch.tasks.weeklyTasks[weekKey]) ch.tasks.weeklyTasks[weekKey] = {};
+    if (!ch.tasks.weeklyTasks[weekKey][dayKey]) {
+      ch.tasks.weeklyTasks[weekKey][dayKey] = { latok: false, szilank: false };
+    }
   }
 
   // ============================================================
@@ -1034,11 +1022,7 @@
     const name = input.value.trim();
     if (!name) { showToast('❗ Kérlek, adj meg egy fiók nevet!'); return; }
 
-    const account = {
-      id: uid('acc'),
-      name,
-      chars: []
-    };
+    const account = { id: uid('acc'), name, chars: [] };
     state.accounts.push(account);
     saveState();
     input.value = '';
@@ -1117,11 +1101,7 @@
     const char = {
       id: uid('chr'),
       name,
-      tasks: {
-        latokParbaja: false,
-        szilizes: false,
-        weeklyLatok: {}
-      }
+      tasks: { weeklyTasks: {} }
     };
     acc.chars.push(char);
     saveState();
@@ -1153,25 +1133,13 @@
   //  TASK TOGGLE
   // ============================================================
 
-  // Daily tasks
-  function toggleTask(accountId, charId, taskKey, checked) {
+  function toggleWeeklyTask(accountId, charId, weekKey, dayKey, taskField, checked) {
     const acc = state.accounts.find(a => a.id === accountId);
     if (!acc) return;
     const ch = acc.chars.find(c => c.id === charId);
     if (!ch) return;
-    ch.tasks[taskKey] = checked;
-    saveState();
-  }
-
-  // Weekly Látók Párbaja: per-day toggle
-  function toggleWeeklyDay(accountId, charId, weekKey, dayKey, checked) {
-    const acc = state.accounts.find(a => a.id === accountId);
-    if (!acc) return;
-    const ch = acc.chars.find(c => c.id === charId);
-    if (!ch) return;
-    if (!ch.tasks.weeklyLatok) ch.tasks.weeklyLatok = {};
-    if (!ch.tasks.weeklyLatok[weekKey]) ch.tasks.weeklyLatok[weekKey] = {};
-    ch.tasks.weeklyLatok[weekKey][dayKey] = checked;
+    ensureTaskSlot(ch, weekKey, dayKey);
+    ch.tasks.weeklyTasks[weekKey][dayKey][taskField] = checked;
     saveState();
   }
 
@@ -1199,8 +1167,8 @@
     showConfirm(
       isDaily ? '🌅 Napi Reset' : '📅 Heti Reset',
       isDaily
-        ? 'Ez eltávolítja az összes napi feladat pipáját (Látók Párbaja, Szilizés). A fiókok és karakterek megmaradnak.'
-        : 'Ez törli az aktuális heti Látók Párbaja bejelöléseket (a jelenlegi hét összes napját). A többi hét megmarad.',
+        ? 'Ez eltávolítja a mai nap összes pipáját (Látók Párbaja és Szilizés) minden karakternél. A többi nap megmarad.'
+        : 'Ez törli az aktuális hét összes napjának összes pipáját (Látók Párbaja és Szilizés). A többi hét megmarad.',
       () => {
         performReset(type);
         const now = new Date().toISOString();
@@ -1220,19 +1188,25 @@
 
   function performReset(type) {
     if (type === 'daily') {
+      // Clear only today's data
+      const currentWeekKey = getWeekKey(new Date());
+      const todayKey = todayDayKey();
       state.accounts.forEach(acc => {
         acc.chars.forEach(ch => {
-          ch.tasks.latokParbaja = false;
-          ch.tasks.szilizes = false;
+          if (ch.tasks.weeklyTasks &&
+              ch.tasks.weeklyTasks[currentWeekKey] &&
+              ch.tasks.weeklyTasks[currentWeekKey][todayKey]) {
+            ch.tasks.weeklyTasks[currentWeekKey][todayKey] = { latok: false, szilank: false };
+          }
         });
       });
     } else {
-      // Weekly reset: clear the current week's data
+      // Weekly reset: clear the entire current week
       const currentWeekKey = getWeekKey(new Date());
       state.accounts.forEach(acc => {
         acc.chars.forEach(ch => {
-          if (ch.tasks.weeklyLatok && ch.tasks.weeklyLatok[currentWeekKey]) {
-            delete ch.tasks.weeklyLatok[currentWeekKey];
+          if (ch.tasks.weeklyTasks && ch.tasks.weeklyTasks[currentWeekKey]) {
+            delete ch.tasks.weeklyTasks[currentWeekKey];
           }
         });
       });
@@ -1294,7 +1268,7 @@
 
     const offset = accountWeekOffset[accountId] || 0;
     const weekDates = getWeekDates(offset);
-    const weekKey = getWeekKey(weekDates[0]); // Monday of the displayed week
+    const weekKey = getWeekKey(weekDates[0]);
     const weekRange = fmtDate(weekDates[0]) + ' – ' + fmtDate(weekDates[6]);
     const isCurrentWeek = (offset === 0);
 
@@ -1317,22 +1291,30 @@
       </th>`;
     }).join('');
 
-    // Build character rows
+    // Build character rows — each row has stacked dual checkboxes per day
     const rows = acc.chars.map(ch => {
-      const t = ch.tasks;
-      const weeklyData = (t.weeklyLatok && t.weeklyLatok[weekKey]) || {};
+      const weeklyData = (ch.tasks.weeklyTasks && ch.tasks.weeklyTasks[weekKey]) || {};
 
-      // Day checkboxes for weekly Látók Párbaja
       const dayCells = weekDates.map((d, i) => {
         const dayKey = DAY_KEYS[i];
-        const checked = weeklyData[dayKey] ? 'checked' : '';
+        const dayData = weeklyData[dayKey] || { latok: false, szilank: false };
         const pastClass = isPast(d) && !isToday(d) ? ' past' : '';
+        const latokChecked = dayData.latok ? 'checked' : '';
+        const szilankChecked = dayData.szilank ? 'checked' : '';
+
         return `<td class="day-cell">
-          <label class="cb-wrap cb-day${pastClass}" title="${DAY_FULL[i]} – Látók Párbaja">
-            <input type="checkbox" ${checked}
-                   onchange="toggleWeeklyDay('${acc.id}','${ch.id}','${weekKey}','${dayKey}',this.checked)"/>
-            <span class="cb-box"></span>
-          </label>
+          <div class="day-cell-stack">
+            <label class="cb-wrap cb-day${pastClass}" title="${DAY_FULL[i]} – Látók Párbaja">
+              <input type="checkbox" ${latokChecked}
+                     onchange="toggleWeeklyTask('${acc.id}','${ch.id}','${weekKey}','${dayKey}','latok',this.checked)"/>
+              <span class="cb-box"></span>
+            </label>
+            <label class="cb-wrap cb-szilank${pastClass}" title="${DAY_FULL[i]} – Szilizés">
+              <input type="checkbox" ${szilankChecked}
+                     onchange="toggleWeeklyTask('${acc.id}','${ch.id}','${weekKey}','${dayKey}','szilank',this.checked)"/>
+              <span class="cb-box"></span>
+            </label>
+          </div>
         </td>`;
       }).join('');
 
@@ -1340,26 +1322,22 @@
         <tr>
           <td>
             <div class="char-name-cell">
-              <div class="char-dot"></div>
-              <span class="char-name">${escHtml(ch.name)}</span>
+              <div class="char-name-top">
+                <div class="char-dot"></div>
+                <span class="char-name">${escHtml(ch.name)}</span>
+              </div>
+              <div class="char-task-labels">
+                <span class="task-label task-label-latok">
+                  <span class="task-label-dot task-label-dot-gold"></span>Látók
+                </span>
+                <span class="task-label task-label-szilank">
+                  <span class="task-label-dot task-label-dot-purple"></span>Szilizés
+                </span>
+              </div>
             </div>
           </td>
-          <td class="task-col">
-            <label class="cb-wrap cb-daily" title="Látók Párbaja (napi)">
-              <input type="checkbox" ${t.latokParbaja ? 'checked' : ''}
-                     onchange="toggleTask('${acc.id}','${ch.id}','latokParbaja',this.checked)"/>
-              <span class="cb-box"></span>
-            </label>
-          </td>
-          <td class="task-col">
-            <label class="cb-wrap cb-daily" title="Szilizés (napi)">
-              <input type="checkbox" ${t.szilizes ? 'checked' : ''}
-                     onchange="toggleTask('${acc.id}','${ch.id}','szilizes',this.checked)"/>
-              <span class="cb-box"></span>
-            </label>
-          </td>
           ${dayCells}
-          <td style="text-align:right; padding-right:4px;">
+          <td style="text-align:right; padding-right:4px; vertical-align:middle;">
             <button class="btn btn-danger" style="padding:3px 8px;font-size:11px;"
                     onclick="deleteCharacter('${acc.id}','${ch.id}')" title="Karakter törlése">✕</button>
           </td>
@@ -1372,31 +1350,35 @@
 
     const weekLabel = isCurrentWeek
       ? `Aktuális hét · ${weekRange}`
-      : (offset > 0
-          ? `+${offset} hét · ${weekRange}`
-          : `${offset} hét · ${weekRange}`);
+      : (offset > 0 ? `+${offset} hét · ${weekRange}` : `${offset} hét · ${weekRange}`);
 
     wrap.innerHTML = `
       <table class="char-table">
         <thead>
           <tr>
-            <th>Karakter</th>
-            <th class="task-col"><span class="col-label-daily">Látók Párbaja</span><br><small style="font-size:9px;opacity:.6">napi</small></th>
-            <th class="task-col"><span class="col-label-daily">Szilizés</span><br><small style="font-size:9px;opacity:.6">napi</small></th>
+            <th style="min-width:130px;">Karakter</th>
             <th colspan="7" style="text-align:center; padding-bottom:2px;">
               <div style="display:flex;align-items:center;justify-content:center;gap:6px;padding-bottom:4px;">
                 <button class="wn-btn" onclick="changeWeek('${accountId}', -1)" title="Előző hét">◀</button>
-                <span style="font-family:var(--font-mono);font-size:10px;color:var(--gold-bright);">🗓 Látók Párbaja (heti)</span>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--gold-bright);">🗓 Heti feladatok</span>
                 <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);">${weekLabel}</span>
                 ${todayBtnHtml}
                 <button class="wn-btn" onclick="changeWeek('${accountId}', 1)" title="Következő hét">▶</button>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding-top:2px;padding-bottom:2px;">
+                <span style="display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--gold-mid);">
+                  <span style="width:8px;height:8px;border-radius:2px;background:var(--gold-dim);border:1px solid var(--gold-mid);display:inline-block;"></span>
+                  Látók Párbaja
+                </span>
+                <span style="display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--text-purple);">
+                  <span style="width:8px;height:8px;border-radius:2px;background:var(--purple-dim);border:1px solid var(--purple-mid);display:inline-block;"></span>
+                  Szilizés
+                </span>
               </div>
             </th>
             <th></th>
           </tr>
           <tr>
-            <th></th>
-            <th></th>
             <th></th>
             ${dayHeaders}
             <th></th>
