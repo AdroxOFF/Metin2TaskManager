@@ -7,9 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    /* =============================================
-       CSS CUSTOM PROPERTIES (DESIGN TOKENS)
-       ============================================= */
     :root {
       --bg-base:        #0d0d12;
       --bg-card:        #13131c;
@@ -54,11 +51,7 @@
       --transition:     all 0.18s ease;
     }
 
-    /* =============================================
-       RESET & BASE
-       ============================================= */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -74,9 +67,7 @@
       min-height: 100vh;
     }
 
-    /* =============================================
-       HEADER
-       ============================================= */
+    /* HEADER */
     header {
       background: linear-gradient(180deg, #0c0c18 0%, var(--bg-header) 100%);
       border-bottom: 1px solid var(--border-accent);
@@ -134,9 +125,7 @@
       gap: 12px;
     }
 
-    /* =============================================
-       BUTTONS
-       ============================================= */
+    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -209,9 +198,7 @@
       font-size: 12px;
     }
 
-    /* =============================================
-       INPUTS
-       ============================================= */
+    /* INPUTS */
     .input-row {
       display: flex;
       gap: 8px;
@@ -236,18 +223,14 @@
       box-shadow: 0 0 0 2px #a855f722;
     }
 
-    /* =============================================
-       MAIN LAYOUT
-       ============================================= */
+    /* MAIN LAYOUT */
     main {
       max-width: 1600px;
       margin: 0 auto;
       padding: 32px 24px 64px;
     }
 
-    /* =============================================
-       TOP ACTION BAR
-       ============================================= */
+    /* ACTION BAR */
     .action-bar {
       display: flex;
       align-items: center;
@@ -284,9 +267,7 @@
       flex-wrap: wrap;
     }
 
-    /* =============================================
-       STATUS CHIPS
-       ============================================= */
+    /* STATUS CHIPS */
     .status-info {
       display: flex;
       gap: 16px;
@@ -320,18 +301,57 @@
       50% { opacity: 0.3; }
     }
 
-    /* =============================================
-       ACCOUNTS GRID
-       ============================================= */
+    /* WEEK NAVIGATOR (above weekly section) */
+    .week-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: #0f0f1a;
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .week-nav-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold-bright);
+      flex-shrink: 0;
+    }
+
+    .week-nav-btn {
+      background: transparent;
+      border: 1px solid var(--gold-dim);
+      border-radius: 4px;
+      color: var(--gold-mid);
+      cursor: pointer;
+      font-size: 14px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .week-nav-btn:hover {
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+    }
+
+    .week-range {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    /* ACCOUNTS GRID */
     #accounts-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
       gap: 20px;
     }
 
-    /* =============================================
-       ACCOUNT CARD
-       ============================================= */
+    /* ACCOUNT CARD */
     .account-card {
       background: var(--bg-card);
       border: 1px solid var(--border-dim);
@@ -408,9 +428,7 @@
 
     .account-actions { display: flex; gap: 6px; }
 
-    /* =============================================
-       CHARACTER TABLE
-       ============================================= */
+    /* CHARACTER TABLE */
     .char-table-wrap {
       padding: 14px 18px;
     }
@@ -437,11 +455,57 @@
 
     .char-table th.task-col {
       text-align: center;
-      min-width: 100px;
+      min-width: 54px;
     }
 
+    /* Day header cells */
+    .char-table th.day-col {
+      text-align: center;
+      min-width: 36px;
+      padding: 4px 3px 8px;
+    }
+
+    .day-col-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .day-col-name {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .day-col-date {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    /* Today highlight */
+    .day-col.today .day-col-name { color: var(--gold-bright); }
+    .day-col.today .day-col-date { color: var(--gold-mid); }
+    .day-col.today-border {
+      position: relative;
+    }
+    .day-col.today-border::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 3px; right: 3px;
+      height: 2px;
+      background: var(--gold-bright);
+      border-radius: 1px;
+    }
+
+    /* Past day dimmed */
+    .day-col.past .day-col-name { color: var(--text-dim); opacity: 0.5; }
+    .day-col.past .day-col-date { color: var(--text-dim); opacity: 0.4; }
+
     .char-table th .col-label-daily  { color: var(--text-purple); }
-    .char-table th .col-label-weekly { color: var(--gold-bright); }
 
     .char-table tbody tr {
       border-bottom: 1px solid #1a1a2a;
@@ -477,10 +541,22 @@
     }
 
     .char-table td.task-col { text-align: center; }
+    .char-table td.day-cell { text-align: center; padding: 7px 3px; }
 
-    /* =============================================
-       CUSTOM CHECKBOXES
-       ============================================= */
+    /* SECTION DIVIDER inside table */
+    .section-header-row td {
+      padding: 6px 8px 4px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-dim);
+      background: #0f0f1880;
+    }
+
+    /* CUSTOM CHECKBOXES */
     .cb-wrap {
       display: inline-flex;
       align-items: center;
@@ -525,31 +601,45 @@
     }
     .cb-daily input:checked ~ .cb-box::after { display: block; }
 
-    /* Weekly checkbox — gold theme */
-    .cb-weekly .cb-box {
+    /* Weekly day checkbox — gold theme, compact */
+    .cb-day .cb-box {
+      width: 20px;
+      height: 20px;
       border-color: var(--gold-mid);
       background: #3a2a0422;
+      border-radius: 3px;
     }
-    .cb-weekly input:checked ~ .cb-box {
+    .cb-day input:checked ~ .cb-box {
       border-color: var(--gold-bright);
       background: var(--gold-dim);
-      box-shadow: 0 0 8px #f5c84266;
+      box-shadow: 0 0 6px #f5c84255;
     }
-    .cb-weekly .cb-box::after {
+    .cb-day .cb-box::after {
       content: '';
       display: none;
-      width: 5px;
-      height: 10px;
+      width: 4px;
+      height: 9px;
       border: 2px solid var(--gold-bright);
       border-top: none;
       border-left: none;
       transform: rotate(45deg) translate(-1px, -1px);
     }
-    .cb-weekly input:checked ~ .cb-box::after { display: block; }
+    .cb-day input:checked ~ .cb-box::after { display: block; }
 
-    /* =============================================
-       ADD CHARACTER ROW
-       ============================================= */
+    /* Past day cell dimmed */
+    .cb-day.past .cb-box {
+      border-color: #2a2a3a;
+      background: #0d0d1a;
+      opacity: 0.55;
+    }
+    .cb-day.past input:checked ~ .cb-box {
+      border-color: #6b5a20;
+      background: #2a1f04;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+
+    /* ADD CHARACTER ROW */
     .add-char-row {
       display: flex;
       gap: 8px;
@@ -564,9 +654,85 @@
       padding: 6px 12px;
     }
 
-    /* =============================================
-       EMPTY STATE
-       ============================================= */
+    /* WEEKLY SECTION LABEL */
+    .weekly-section-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px 4px;
+      border-top: 1px solid var(--border-dim);
+      background: #0e0e1a;
+    }
+
+    .weekly-section-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+    }
+
+    .weekly-week-info {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-left: auto;
+    }
+
+    /* Week navigation buttons in the card */
+    .week-nav-card {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 18px 8px;
+      background: #0e0e1a;
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .wn-btn {
+      background: transparent;
+      border: 1px solid var(--gold-dim);
+      border-radius: 3px;
+      color: var(--gold-mid);
+      cursor: pointer;
+      font-size: 12px;
+      padding: 2px 7px;
+      transition: var(--transition);
+      font-family: var(--font-mono);
+    }
+    .wn-btn:hover {
+      border-color: var(--gold-bright);
+      color: var(--gold-bright);
+    }
+
+    .wn-week-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-secondary);
+      flex: 1;
+      text-align: center;
+    }
+
+    .wn-today-btn {
+      background: #3a2a0444;
+      border: 1px solid var(--gold-dim);
+      border-radius: 3px;
+      color: var(--gold-bright);
+      cursor: pointer;
+      font-size: 10px;
+      padding: 2px 7px;
+      transition: var(--transition);
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .wn-today-btn:hover {
+      background: var(--gold-dim);
+    }
+
+    /* EMPTY STATE */
     .empty-state {
       text-align: center;
       padding: 40px 20px;
@@ -580,9 +746,7 @@
       text-transform: uppercase;
     }
 
-    /* =============================================
-       CONFIRMATION MODAL
-       ============================================= */
+    /* CONFIRMATION MODAL */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -629,9 +793,7 @@
 
     .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
 
-    /* =============================================
-       TOAST NOTIFICATION
-       ============================================= */
+    /* TOAST */
     #toast {
       position: fixed;
       bottom: 28px;
@@ -655,9 +817,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* =============================================
-       LAST RESET INFO
-       ============================================= */
     .reset-timestamps {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -667,17 +826,11 @@
       gap: 2px;
     }
 
-    /* =============================================
-       SCROLLBAR
-       ============================================= */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-base); }
     ::-webkit-scrollbar-thumb { background: var(--purple-dim); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--purple-mid); }
 
-    /* =============================================
-       RESPONSIVE
-       ============================================= */
     @media (max-width: 700px) {
       header { padding: 0 16px; }
       main { padding: 20px 12px 48px; }
@@ -690,9 +843,6 @@
 </head>
 <body>
 
-<!-- ================================================
-     HEADER
-     ================================================ -->
 <header>
   <div class="header-inner">
     <div class="logo">
@@ -708,12 +858,8 @@
   </div>
 </header>
 
-<!-- ================================================
-     MAIN
-     ================================================ -->
 <main>
 
-  <!-- ACTION BAR -->
   <div class="action-bar">
     <span class="action-bar-title">⚡ Reset műveletek</span>
     <div class="action-bar-sep"></div>
@@ -741,10 +887,8 @@
     </div>
   </div>
 
-  <!-- ACCOUNTS GRID -->
   <div id="accounts-container"></div>
 
-  <!-- EMPTY STATE (shown when no accounts) -->
   <div id="empty-state" class="empty-state" style="display:none;">
     <div class="empty-state-icon">🏰</div>
     <div class="empty-state-text">Még nincs fiók — hozz létre egyet fent!</div>
@@ -752,16 +896,11 @@
 
 </main>
 
-<!-- TOAST -->
 <div id="toast"></div>
 
-<!-- ================================================
-     JAVASCRIPT
-     ================================================ -->
 <script>
   // ============================================================
   //  DATA MODEL
-  //  Struktúra a localStorage-ban:
   //  {
   //    accounts: [
   //      {
@@ -772,30 +911,53 @@
   //            id: "chr_xxx",
   //            name: "Karakter neve",
   //            tasks: {
-  //              latokParbaja: false,  // napi
-  //              szilizes: false,      // napi
-  //              weeklyLatok: false,   // heti
-  //              weeklySzilizes: false // heti
+  //              latokParbaja: false,   // napi
+  //              szilizes: false,       // napi
+  //              // Heti Látók Párbaja: per-day per-week storage
+  //              // weeklyLatok: { "2025-W22": { "Mon": true, "Tue": false, ... } }
+  //              weeklyLatok: {}
   //            }
   //          }
   //        ]
   //      }
   //    ],
-  //    lastDailyReset: null,   // ISO string
-  //    lastWeeklyReset: null   // ISO string
+  //    lastDailyReset: null,
+  //    lastWeeklyReset: null
   //  }
   // ============================================================
 
-  const STORAGE_KEY = 'gtt_data_v2';
+  const STORAGE_KEY = 'gtt_data_v3';
+
+  // Per-account week offset (how many weeks forward/back from current)
+  // Stored in memory only (not persisted), reset on page load
+  const accountWeekOffset = {};
+
+  const DAY_KEYS   = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const DAY_NAMES  = ['H', 'K', 'Sz', 'Cs', 'P', 'Szo', 'V'];
+  const DAY_FULL   = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap'];
 
   // ---------- State ----------
   let state = loadState();
 
-  // ---------- Load / Save ----------
   function loadState() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) return JSON.parse(raw);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        // Migrate old data if needed (v2 -> v3): convert weeklyLatok boolean to object
+        (parsed.accounts || []).forEach(acc => {
+          (acc.chars || []).forEach(ch => {
+            if (!ch.tasks) ch.tasks = {};
+            // If weeklyLatok is boolean (old format), convert to object
+            if (typeof ch.tasks.weeklyLatok !== 'object' || ch.tasks.weeklyLatok === null) {
+              ch.tasks.weeklyLatok = {};
+            }
+            // Remove old weeklySzilizes if present
+            delete ch.tasks.weeklySzilizes;
+          });
+        });
+        return parsed;
+      }
     } catch(e) { /* ignore */ }
     return { accounts: [], lastDailyReset: null, lastWeeklyReset: null };
   }
@@ -804,9 +966,63 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
-  // ---------- ID Generator ----------
   function uid(prefix) {
     return prefix + '_' + Math.random().toString(36).slice(2, 9);
+  }
+
+  // ============================================================
+  //  WEEK UTILITIES
+  // ============================================================
+
+  // Returns the Monday of the week containing the given date
+  function getMondayOfWeek(date) {
+    const d = new Date(date);
+    const day = d.getDay(); // 0=Sun, 1=Mon, ...
+    const diff = (day === 0) ? -6 : 1 - day;
+    d.setDate(d.getDate() + diff);
+    d.setHours(0, 0, 0, 0);
+    return d;
+  }
+
+  // ISO week key: "YYYY-Www"
+  function getWeekKey(date) {
+    const monday = getMondayOfWeek(date);
+    const year = monday.getFullYear();
+    const start = new Date(year, 0, 1);
+    const weekNum = Math.ceil(((monday - start) / 86400000 + start.getDay() + 1) / 7);
+    return year + '-W' + String(weekNum).padStart(2, '0');
+  }
+
+  // Returns array of 7 Date objects (Mon–Sun) for the week at offset
+  function getWeekDates(offset) {
+    const base = new Date();
+    base.setDate(base.getDate() + offset * 7);
+    const monday = getMondayOfWeek(base);
+    return DAY_KEYS.map((_, i) => {
+      const d = new Date(monday);
+      d.setDate(monday.getDate() + i);
+      return d;
+    });
+  }
+
+  // Format date as MM.DD
+  function fmtDate(date) {
+    return (date.getMonth() + 1) + '.' + String(date.getDate()).padStart(2, '0');
+  }
+
+  // Is a date "today"?
+  function isToday(date) {
+    const now = new Date();
+    return date.getFullYear() === now.getFullYear() &&
+           date.getMonth() === now.getMonth() &&
+           date.getDate() === now.getDate();
+  }
+
+  // Is a date in the past (before today)?
+  function isPast(date) {
+    const now = new Date();
+    now.setHours(0,0,0,0);
+    return date < now;
   }
 
   // ============================================================
@@ -826,6 +1042,7 @@
     state.accounts.push(account);
     saveState();
     input.value = '';
+    accountWeekOffset[account.id] = 0;
     renderAccount(account);
     updateStats();
     showToast(`✅ "${name}" fiók létrehozva`);
@@ -855,7 +1072,6 @@
     const nameEl = document.getElementById('acc-name-' + accountId);
     const oldName = acc.name;
 
-    // Replace text with input
     const inp = document.createElement('input');
     inp.type = 'text';
     inp.className = 'account-name-input';
@@ -868,21 +1084,22 @@
       const newName = inp.value.trim() || oldName;
       acc.name = newName;
       saveState();
-      // Restore text
       const span = document.createElement('span');
       span.className = 'account-name';
       span.id = 'acc-name-' + accountId;
       span.textContent = newName;
       inp.replaceWith(span);
       span.ondblclick = () => startRenameAccount(accountId);
-      // Update badge
       const badge = document.getElementById('acc-badge-' + accountId);
       if (badge) badge.textContent = newName.charAt(0).toUpperCase();
       showToast(`✏️ Átnevezve: "${newName}"`);
     };
 
     inp.onblur = finish;
-    inp.onkeydown = (e) => { if (e.key === 'Enter') inp.blur(); if (e.key === 'Escape') { inp.value = oldName; inp.blur(); } };
+    inp.onkeydown = (e) => {
+      if (e.key === 'Enter') inp.blur();
+      if (e.key === 'Escape') { inp.value = oldName; inp.blur(); }
+    };
   }
 
   // ============================================================
@@ -903,15 +1120,12 @@
       tasks: {
         latokParbaja: false,
         szilizes: false,
-        weeklyLatok: false,
-        weeklySzilizes: false
+        weeklyLatok: {}
       }
     };
     acc.chars.push(char);
     saveState();
     inputEl.value = '';
-
-    // Re-render just this account card's table
     renderCharTable(accountId);
     updateStats();
     showToast(`⚔ "${name}" karakter hozzáadva`);
@@ -939,6 +1153,7 @@
   //  TASK TOGGLE
   // ============================================================
 
+  // Daily tasks
   function toggleTask(accountId, charId, taskKey, checked) {
     const acc = state.accounts.find(a => a.id === accountId);
     if (!acc) return;
@@ -946,6 +1161,33 @@
     if (!ch) return;
     ch.tasks[taskKey] = checked;
     saveState();
+  }
+
+  // Weekly Látók Párbaja: per-day toggle
+  function toggleWeeklyDay(accountId, charId, weekKey, dayKey, checked) {
+    const acc = state.accounts.find(a => a.id === accountId);
+    if (!acc) return;
+    const ch = acc.chars.find(c => c.id === charId);
+    if (!ch) return;
+    if (!ch.tasks.weeklyLatok) ch.tasks.weeklyLatok = {};
+    if (!ch.tasks.weeklyLatok[weekKey]) ch.tasks.weeklyLatok[weekKey] = {};
+    ch.tasks.weeklyLatok[weekKey][dayKey] = checked;
+    saveState();
+  }
+
+  // ============================================================
+  //  WEEK NAVIGATION
+  // ============================================================
+
+  function changeWeek(accountId, delta) {
+    if (accountWeekOffset[accountId] === undefined) accountWeekOffset[accountId] = 0;
+    accountWeekOffset[accountId] += delta;
+    renderCharTable(accountId);
+  }
+
+  function goToCurrentWeek(accountId) {
+    accountWeekOffset[accountId] = 0;
+    renderCharTable(accountId);
   }
 
   // ============================================================
@@ -958,7 +1200,7 @@
       isDaily ? '🌅 Napi Reset' : '📅 Heti Reset',
       isDaily
         ? 'Ez eltávolítja az összes napi feladat pipáját (Látók Párbaja, Szilizés). A fiókok és karakterek megmaradnak.'
-        : 'Ez eltávolítja az összes heti feladat pipáját (Heti Látók Párbaja, Heti Szilizés). A fiókok és karakterek megmaradnak.',
+        : 'Ez törli az aktuális heti Látók Párbaja bejelöléseket (a jelenlegi hét összes napját). A többi hét megmarad.',
       () => {
         performReset(type);
         const now = new Date().toISOString();
@@ -971,32 +1213,43 @@
         }
         saveState();
         updateResetTimestamps();
-        // Re-render all checkboxes
         state.accounts.forEach(acc => renderCharTable(acc.id));
       }
     );
   }
 
   function performReset(type) {
-    const dailyKeys  = ['latokParbaja', 'szilizes'];
-    const weeklyKeys = ['weeklyLatok', 'weeklySzilizes'];
-    const keys = type === 'daily' ? dailyKeys : weeklyKeys;
-
-    state.accounts.forEach(acc => {
-      acc.chars.forEach(ch => {
-        keys.forEach(k => { ch.tasks[k] = false; });
+    if (type === 'daily') {
+      state.accounts.forEach(acc => {
+        acc.chars.forEach(ch => {
+          ch.tasks.latokParbaja = false;
+          ch.tasks.szilizes = false;
+        });
       });
-    });
+    } else {
+      // Weekly reset: clear the current week's data
+      const currentWeekKey = getWeekKey(new Date());
+      state.accounts.forEach(acc => {
+        acc.chars.forEach(ch => {
+          if (ch.tasks.weeklyLatok && ch.tasks.weeklyLatok[currentWeekKey]) {
+            delete ch.tasks.weeklyLatok[currentWeekKey];
+          }
+        });
+      });
+    }
   }
 
   // ============================================================
-  //  RENDER FUNCTIONS
+  //  RENDER
   // ============================================================
 
   function renderAll() {
     const container = document.getElementById('accounts-container');
     container.innerHTML = '';
-    state.accounts.forEach(acc => renderAccount(acc));
+    state.accounts.forEach(acc => {
+      accountWeekOffset[acc.id] = 0;
+      renderAccount(acc);
+    });
     updateStats();
     updateResetTimestamps();
     checkEmpty();
@@ -1004,7 +1257,7 @@
 
   function renderAccount(acc) {
     const container = document.getElementById('accounts-container');
-    checkEmpty(); // hide empty state
+    checkEmpty();
 
     const card = document.createElement('div');
     card.className = 'account-card';
@@ -1030,11 +1283,7 @@
     `;
 
     container.appendChild(card);
-
-    // Allow rename on double-click of name
     document.getElementById('acc-name-' + acc.id).ondblclick = () => startRenameAccount(acc.id);
-
-    // Render table
     renderCharTable(acc.id);
   }
 
@@ -1042,6 +1291,12 @@
     const acc = state.accounts.find(a => a.id === accountId);
     const wrap = document.getElementById('char-wrap-' + accountId);
     if (!acc || !wrap) return;
+
+    const offset = accountWeekOffset[accountId] || 0;
+    const weekDates = getWeekDates(offset);
+    const weekKey = getWeekKey(weekDates[0]); // Monday of the displayed week
+    const weekRange = fmtDate(weekDates[0]) + ' – ' + fmtDate(weekDates[6]);
+    const isCurrentWeek = (offset === 0);
 
     if (acc.chars.length === 0) {
       wrap.innerHTML = `
@@ -1051,9 +1306,36 @@
       return;
     }
 
-    // Build rows
+    // Build day header cells
+    const dayHeaders = weekDates.map((d, i) => {
+      const todayClass = isToday(d) ? ' today today-border' : (isPast(d) ? ' past' : '');
+      return `<th class="day-col${todayClass}">
+        <div class="day-col-inner">
+          <span class="day-col-name">${DAY_NAMES[i]}</span>
+          <span class="day-col-date">${fmtDate(d)}</span>
+        </div>
+      </th>`;
+    }).join('');
+
+    // Build character rows
     const rows = acc.chars.map(ch => {
       const t = ch.tasks;
+      const weeklyData = (t.weeklyLatok && t.weeklyLatok[weekKey]) || {};
+
+      // Day checkboxes for weekly Látók Párbaja
+      const dayCells = weekDates.map((d, i) => {
+        const dayKey = DAY_KEYS[i];
+        const checked = weeklyData[dayKey] ? 'checked' : '';
+        const pastClass = isPast(d) && !isToday(d) ? ' past' : '';
+        return `<td class="day-cell">
+          <label class="cb-wrap cb-day${pastClass}" title="${DAY_FULL[i]} – Látók Párbaja">
+            <input type="checkbox" ${checked}
+                   onchange="toggleWeeklyDay('${acc.id}','${ch.id}','${weekKey}','${dayKey}',this.checked)"/>
+            <span class="cb-box"></span>
+          </label>
+        </td>`;
+      }).join('');
+
       return `
         <tr>
           <td>
@@ -1076,26 +1358,23 @@
               <span class="cb-box"></span>
             </label>
           </td>
-          <td class="task-col">
-            <label class="cb-wrap cb-weekly" title="Látók Párbaja (heti)">
-              <input type="checkbox" ${t.weeklyLatok ? 'checked' : ''}
-                     onchange="toggleTask('${acc.id}','${ch.id}','weeklyLatok',this.checked)"/>
-              <span class="cb-box"></span>
-            </label>
-          </td>
-          <td class="task-col">
-            <label class="cb-wrap cb-weekly" title="Szilizés (heti)">
-              <input type="checkbox" ${t.weeklySzilizes ? 'checked' : ''}
-                     onchange="toggleTask('${acc.id}','${ch.id}','weeklySzilizes',this.checked)"/>
-              <span class="cb-box"></span>
-            </label>
-          </td>
+          ${dayCells}
           <td style="text-align:right; padding-right:4px;">
             <button class="btn btn-danger" style="padding:3px 8px;font-size:11px;"
                     onclick="deleteCharacter('${acc.id}','${ch.id}')" title="Karakter törlése">✕</button>
           </td>
         </tr>`;
     }).join('');
+
+    const todayBtnHtml = !isCurrentWeek
+      ? `<button class="wn-today-btn" onclick="goToCurrentWeek('${accountId}')">Ma</button>`
+      : '';
+
+    const weekLabel = isCurrentWeek
+      ? `Aktuális hét · ${weekRange}`
+      : (offset > 0
+          ? `+${offset} hét · ${weekRange}`
+          : `${offset} hét · ${weekRange}`);
 
     wrap.innerHTML = `
       <table class="char-table">
@@ -1104,8 +1383,22 @@
             <th>Karakter</th>
             <th class="task-col"><span class="col-label-daily">Látók Párbaja</span><br><small style="font-size:9px;opacity:.6">napi</small></th>
             <th class="task-col"><span class="col-label-daily">Szilizés</span><br><small style="font-size:9px;opacity:.6">napi</small></th>
-            <th class="task-col"><span class="col-label-weekly">Látók Párbaja</span><br><small style="font-size:9px;opacity:.6">heti</small></th>
-            <th class="task-col"><span class="col-label-weekly">Szilizés</span><br><small style="font-size:9px;opacity:.6">heti</small></th>
+            <th colspan="7" style="text-align:center; padding-bottom:2px;">
+              <div style="display:flex;align-items:center;justify-content:center;gap:6px;padding-bottom:4px;">
+                <button class="wn-btn" onclick="changeWeek('${accountId}', -1)" title="Előző hét">◀</button>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--gold-bright);">🗓 Látók Párbaja (heti)</span>
+                <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);">${weekLabel}</span>
+                ${todayBtnHtml}
+                <button class="wn-btn" onclick="changeWeek('${accountId}', 1)" title="Következő hét">▶</button>
+              </div>
+            </th>
+            <th></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            ${dayHeaders}
             <th></th>
           </tr>
         </thead>
@@ -1114,14 +1407,14 @@
   }
 
   // ============================================================
-  //  STATS & UI HELPERS
+  //  STATS & HELPERS
   // ============================================================
 
   function updateStats() {
     const totalAccounts = state.accounts.length;
     const totalChars = state.accounts.reduce((s, a) => s + a.chars.length, 0);
-    document.getElementById('chip-accounts-text').textContent = totalAccounts + (totalAccounts === 1 ? ' fiók' : ' fiók');
-    document.getElementById('chip-chars-text').textContent = totalChars + (totalChars === 1 ? ' karakter' : ' karakter');
+    document.getElementById('chip-accounts-text').textContent = totalAccounts + ' fiók';
+    document.getElementById('chip-chars-text').textContent = totalChars + ' karakter';
   }
 
   function updateResetTimestamps() {
@@ -1141,11 +1434,7 @@
 
   function checkEmpty() {
     const empty = document.getElementById('empty-state');
-    if (state.accounts.length === 0) {
-      empty.style.display = 'block';
-    } else {
-      empty.style.display = 'none';
-    }
+    empty.style.display = state.accounts.length === 0 ? 'block' : 'none';
   }
 
   function escHtml(str) {
@@ -1167,11 +1456,10 @@
   }
 
   // ============================================================
-  //  CONFIRMATION MODAL
+  //  CONFIRM MODAL
   // ============================================================
 
   function showConfirm(title, body, onConfirm) {
-    // Remove existing modal
     const existing = document.getElementById('confirm-modal-overlay');
     if (existing) existing.remove();
 
@@ -1192,15 +1480,12 @@
     document.body.appendChild(overlay);
 
     document.getElementById('modal-cancel').onclick = () => overlay.remove();
-    document.getElementById('modal-confirm').onclick = () => {
-      overlay.remove();
-      onConfirm();
-    };
+    document.getElementById('modal-confirm').onclick = () => { overlay.remove(); onConfirm(); };
     overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
   }
 
   // ============================================================
-  //  KEYBOARD SHORTCUT: Enter on account input
+  //  KEYBOARD
   // ============================================================
   document.getElementById('new-account-input').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') addAccount();
