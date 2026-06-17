@@ -37,6 +37,9 @@
       --red-bright:     #f87171;
       --red-dim:        #3b0f0f;
 
+      --teal-bright:    #14ffff;
+      --teal-mid:       #14a9ae;
+
       --radius-sm:      6px;
       --radius-md:      10px;
       --radius-lg:      16px;
@@ -261,10 +264,14 @@
       color: var(--text-dim); flex-shrink: 0;
     }
 
-    /* Add task row */
+    /* ── ADD TASK SECTION ── */
+    .add-task-section {
+      border-top: 1px solid var(--border-dim);
+      padding-top: 14px;
+    }
     .add-task-row {
       display: flex; gap: 8px; align-items: center;
-      padding-top: 12px; border-top: 1px solid var(--border-dim);
+      margin-bottom: 10px;
     }
     .task-color-pick {
       width: 34px; height: 34px; border-radius: var(--radius-sm);
@@ -280,12 +287,113 @@
       flex: 1; font-size: 13px; padding: 6px 12px;
     }
 
+    /* ── CHARACTER ASSIGNMENT PANEL ── */
+    .char-assign-panel {
+      background: #08080f;
+      border: 1px solid #14a9ae33;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+    .char-assign-title {
+      font-family: var(--font-display); font-size: 11px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--teal-mid); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .char-assign-mode {
+      display: flex; gap: 6px; margin-bottom: 10px;
+    }
+    .mode-btn {
+      padding: 4px 12px; border-radius: 999px; border: 1px solid;
+      font-family: var(--font-display); font-size: 11px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; transition: var(--transition);
+      background: transparent;
+    }
+    .mode-btn.all {
+      border-color: var(--green-bright); color: var(--green-bright);
+    }
+    .mode-btn.all.active {
+      background: #052e1688; box-shadow: 0 0 8px #22c55e33;
+    }
+    .mode-btn.custom {
+      border-color: var(--teal-mid); color: var(--teal-bright);
+    }
+    .mode-btn.custom.active {
+      background: #07222388; box-shadow: 0 0 8px #14ffff22;
+    }
+    .char-assign-list {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .char-assign-account {
+      margin-bottom: 4px;
+    }
+    .char-assign-account-label {
+      font-family: var(--font-mono); font-size: 9px; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-secondary);
+      margin-bottom: 4px; padding-left: 2px;
+    }
+    .char-assign-chars {
+      display: flex; flex-wrap: wrap; gap: 5px;
+    }
+    .char-assign-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 9px; border-radius: 999px;
+      border: 1px solid var(--border-dim);
+      font-family: var(--font-display); font-size: 11px; font-weight: 600;
+      color: var(--text-secondary); background: transparent;
+      cursor: pointer; transition: var(--transition); user-select: none;
+    }
+    .char-assign-chip:hover {
+      border-color: var(--teal-mid); color: var(--teal-bright);
+    }
+    .char-assign-chip.selected {
+      border-color: var(--teal-bright);
+      background: #14ffff15;
+      color: var(--teal-bright);
+      box-shadow: 0 0 6px #14ffff22;
+    }
+    .char-assign-chip input[type="checkbox"] { display: none; }
+    .char-assign-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--border-dim); flex-shrink: 0;
+      transition: background 0.15s ease;
+    }
+    .char-assign-chip.selected .char-assign-dot {
+      background: var(--teal-bright);
+    }
+    .char-assign-empty {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); font-style: italic;
+    }
+    .assign-summary {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); margin-top: 6px;
+    }
+    .assign-summary span { color: var(--teal-mid); }
+
     /* Max task info */
     .task-limit-info {
       font-family: var(--font-mono); font-size: 10px;
-      color: var(--text-dim); text-align: right; margin-top: 8px;
+      color: var(--text-dim); text-align: right; margin-top: 4px;
     }
     .task-limit-info.at-limit { color: var(--red-bright); }
+
+    /* ── TASK SCOPE BADGE on task items ── */
+    .task-scope-badge {
+      font-family: var(--font-mono); font-size: 9px;
+      padding: 2px 7px; border-radius: 999px; border: 1px solid;
+      flex-shrink: 0; white-space: nowrap;
+    }
+    .task-scope-badge.all-badge {
+      border-color: var(--green-bright); color: var(--green-bright);
+      background: #052e1644;
+    }
+    .task-scope-badge.custom-badge {
+      border-color: var(--teal-mid); color: var(--teal-mid);
+      background: #07222344;
+    }
 
     /* ── ACCOUNTS GRID ── */
     #accounts-container {
@@ -419,7 +527,6 @@
       display: flex; align-items: center; justify-content: center;
       transition: var(--transition); position: relative; flex-shrink: 0;
     }
-    /* Checkmark */
     .cb-box::after {
       content: ''; display: none;
       width: 4px; height: 9px;
@@ -429,7 +536,6 @@
     }
     .cb-wrap input:checked ~ .cb-box::after { display: block; }
 
-    /* Dynamic colored checkbox — color set via inline style */
     .cb-dyn .cb-box {
       border-color: var(--cb-color, var(--gold-mid));
       background: color-mix(in srgb, var(--cb-color, var(--gold-mid)) 8%, transparent);
@@ -438,15 +544,20 @@
       background: color-mix(in srgb, var(--cb-color, var(--gold-mid)) 22%, #0d0d12);
       box-shadow: 0 0 6px color-mix(in srgb, var(--cb-color, var(--gold-mid)) 50%, transparent);
     }
-    .cb-dyn .cb-box::after {
-      color: var(--cb-color, var(--gold-bright));
-    }
+    .cb-dyn .cb-box::after { color: var(--cb-color, var(--gold-bright)); }
     .cb-dyn.past .cb-box {
       border-color: #2a2a3a; background: #0d0d1a; opacity: 0.55;
     }
     .cb-dyn.past input:checked ~ .cb-box {
       border-color: #44444a; background: #1a1a22; box-shadow: none; opacity: 0.65;
     }
+
+    /* Disabled (not assigned) checkbox */
+    .cb-dyn.not-assigned .cb-box {
+      border-color: #1e1e2e !important; background: #0a0a1044 !important;
+      opacity: 0.2; cursor: not-allowed;
+    }
+    .cb-dyn.not-assigned { cursor: not-allowed; }
 
     /* ── ADD CHARACTER ROW ── */
     .add-char-row {
@@ -484,7 +595,7 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .modal {
       background: var(--bg-card); border: 1px solid var(--border-accent);
-      border-radius: var(--radius-lg); padding: 28px 32px; max-width: 400px; width: 90%;
+      border-radius: var(--radius-lg); padding: 28px 32px; max-width: 420px; width: 90%;
       box-shadow: 0 8px 48px #00000090, var(--shadow-purple); animation: modalIn 0.2s ease;
     }
     @keyframes modalIn {
@@ -570,7 +681,7 @@
     </div>
   </div>
 
-  <!-- TASK MANAGER PANEL (hidden by default) -->
+  <!-- TASK MANAGER PANEL -->
   <div id="task-manager-panel" class="task-manager-panel" style="display:none;">
     <div class="task-manager-header">
       <span class="task-manager-title">⚙ Task Manager — Feladatok kezelése</span>
@@ -578,15 +689,39 @@
     </div>
     <div class="task-manager-body">
       <div class="task-list" id="task-list"></div>
-      <div class="add-task-row" id="add-task-row">
-        <div class="task-color-pick" title="Válassz színt">
-          <input type="color" id="new-task-color" value="#f5c842" />
+
+      <!-- ADD TASK SECTION -->
+      <div class="add-task-section" id="add-task-section">
+        <div class="add-task-row">
+          <div class="task-color-pick" title="Válassz színt">
+            <input type="color" id="new-task-color" value="#f5c842" />
+          </div>
+          <input type="text" id="new-task-name" placeholder="Új feladat neve…" maxlength="30"
+                 onkeydown="if(event.key==='Enter') addTask()" />
+          <button class="btn btn-teal btn-sm" onclick="addTask()">+ Task</button>
         </div>
-        <input type="text" id="new-task-name" placeholder="Új feladat neve…" maxlength="30"
-               onkeydown="if(event.key==='Enter') addTask()" />
-        <button class="btn btn-teal btn-sm" onclick="addTask()">+ Task</button>
+
+        <!-- CHARACTER ASSIGNMENT -->
+        <div class="char-assign-panel" id="char-assign-panel">
+          <div class="char-assign-title">
+            👥 Kinek szól ez a task?
+          </div>
+          <div class="char-assign-mode">
+            <button class="mode-btn all active" id="mode-btn-all" onclick="setAssignMode('all')">
+              ✦ Mindenki (All)
+            </button>
+            <button class="mode-btn custom" id="mode-btn-custom" onclick="setAssignMode('custom')">
+              ✎ Egyedi választás
+            </button>
+          </div>
+          <div id="char-assign-list-wrap" style="display:none;">
+            <div class="char-assign-list" id="char-assign-list"></div>
+            <div class="assign-summary" id="assign-summary">0 karakter kiválasztva</div>
+          </div>
+        </div>
+
+        <div class="task-limit-info" id="task-limit-info">0 / 10 task</div>
       </div>
-      <div class="task-limit-info" id="task-limit-info">0 / 10 task</div>
     </div>
   </div>
 
@@ -603,72 +738,66 @@
 
 <script>
 // ================================================================
-//  DATA MODEL v5
+//  DATA MODEL v5 + active char persistence + per-char task assignment
+//
 //  state = {
 //    tasks: [
-//      { id: "tsk_xxx", name: "Látók Párbaja", color: "#f5c842" },
-//      { id: "tsk_yyy", name: "Szilizés",      color: "#a855f7" },
-//      ...up to 10
-//    ],
-//    accounts: [
 //      {
-//        id: "acc_xxx", name: "Account 1",
-//        chars: [
-//          {
-//            id: "chr_xxx", name: "Karakter neve",
-//            weeklyTasks: {
-//              "2025-W22": {
-//                "Mon": { "tsk_xxx": true, "tsk_yyy": false, ... },
-//                "Tue": { ... },
-//                ...
-//              }
-//            }
-//          }
-//        ]
-//      }
+//        id: "tsk_xxx", name: "Látók Párbaja", color: "#f5c842",
+//        // assignedChars: null means ALL, array of charIds means custom
+//        assignedChars: null | ["chr_xxx", "chr_yyy"]
+//      }, ...
 //    ],
+//    accounts: [ { id, name, chars: [{ id, name, weeklyTasks: {} }] } ],
+//    activeChars: { "acc_xxx": "chr_yyy", ... },   // ← NEW: persisted
 //    lastDailyReset: null,
 //    lastWeeklyReset: null
 //  }
 // ================================================================
 
-const STORAGE_KEY     = 'gtt_data_v5';
-const LEGACY_STORAGE_KEY = 'gtt_data_v4'; // previous version's key — read once for migration
-const MAX_TASKS   = 10;
+const STORAGE_KEY        = 'gtt_data_v5';
+const LEGACY_STORAGE_KEY = 'gtt_data_v4';
+const MAX_TASKS          = 10;
 
-// Per-account week offset (memory only)
+// Per-account week offset (memory only — resets on refresh intentionally)
 const accountWeekOffset = {};
 
-// Active character per account (memory only)
-const activeChar = {};
+// activeChars is now stored in state and persisted
+// We'll keep a convenience alias:
+let activeChar = {}; // will be populated from state.activeChars on load
 
 const DAY_KEYS  = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const DAY_NAMES = ['H','K','Sz','Cs','P','Szo','V'];
 const DAY_FULL  = ['Hétfő','Kedd','Szerda','Csütörtök','Péntek','Szombat','Vasárnap'];
 
-// ── DEFAULT TASKS (used when starting fresh or migrating)
 const DEFAULT_TASKS = [
-  { id: 'tsk_latok',   name: 'Látók Párbaja', color: '#f5c842' },
-  { id: 'tsk_szilank', name: 'Szilizés',      color: '#a855f7' },
+  { id: 'tsk_latok',   name: 'Látók Párbaja', color: '#f5c842', assignedChars: null },
+  { id: 'tsk_szilank', name: 'Szilizés',      color: '#a855f7', assignedChars: null },
 ];
+
+// ── NEW TASK UI state (in-memory only, not persisted)
+let newTaskAssignMode    = 'all';    // 'all' | 'custom'
+let newTaskSelectedChars = new Set(); // charIds selected in custom mode
 
 // ── STATE ──
 let state = loadState();
+activeChar = state.activeChars || {};
 
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const p = JSON.parse(raw);
-
-      // Ensure global tasks array
       if (!Array.isArray(p.tasks)) p.tasks = [...DEFAULT_TASKS];
 
-      // Migrate characters (v4 -> v5 per-char shape, in case an old-shaped
-      // object ever ended up under the v5 key)
+      // Ensure assignedChars field on each task (migration from older saves)
+      p.tasks.forEach(t => {
+        if (!('assignedChars' in t)) t.assignedChars = null;
+      });
+
+      // Migrate characters v4->v5 shape if needed
       (p.accounts || []).forEach(acc => {
         (acc.chars || []).forEach(ch => {
-          // v4 format: ch.tasks.weeklyTasks
           if (ch.tasks && ch.tasks.weeklyTasks && !ch.weeklyTasks) {
             ch.weeklyTasks = {};
             const wt = ch.tasks.weeklyTasks;
@@ -677,7 +806,6 @@ function loadState() {
               Object.entries(days).forEach(([dk, val]) => {
                 ch.weeklyTasks[wk][dk] = {};
                 if (typeof val === 'object') {
-                  // Map latok -> tsk_latok, szilank -> tsk_szilank
                   if (val.latok   !== undefined) ch.weeklyTasks[wk][dk]['tsk_latok']   = !!val.latok;
                   if (val.szilank !== undefined) ch.weeklyTasks[wk][dk]['tsk_szilank'] = !!val.szilank;
                 }
@@ -690,24 +818,22 @@ function loadState() {
       });
 
       return {
-        tasks: p.tasks,
-        accounts: p.accounts || [],
-        lastDailyReset: p.lastDailyReset || null,
-        lastWeeklyReset: p.lastWeeklyReset || null,
+        tasks:            p.tasks,
+        accounts:         p.accounts || [],
+        activeChars:      p.activeChars || {},   // ← persisted active chars
+        lastDailyReset:   p.lastDailyReset  || null,
+        lastWeeklyReset:  p.lastWeeklyReset || null,
       };
     }
 
-    // No v5 data yet — check for older (v4) data saved by the previous
-    // version of this tool under a different storage key, and migrate it
-    // in place so existing accounts/characters/checkmarks aren't lost.
+    // Legacy migration
     const legacyRaw = localStorage.getItem(LEGACY_STORAGE_KEY);
     if (legacyRaw) {
       const legacy = JSON.parse(legacyRaw);
       const migrated = {
         tasks: [...DEFAULT_TASKS],
         accounts: (legacy.accounts || []).map(acc => ({
-          id: acc.id,
-          name: acc.name,
+          id: acc.id, name: acc.name,
           chars: (acc.chars || []).map(ch => {
             const weeklyTasks = {};
             const wt = (ch.tasks && ch.tasks.weeklyTasks) || {};
@@ -724,31 +850,42 @@ function loadState() {
             return { id: ch.id, name: ch.name, weeklyTasks };
           }),
         })),
-        lastDailyReset: legacy.lastDailyReset || null,
+        activeChars:     {},
+        lastDailyReset:  legacy.lastDailyReset  || null,
         lastWeeklyReset: legacy.lastWeeklyReset || null,
       };
-
-      // Persist immediately under the new key so this only runs once,
-      // and leave the old key intact (harmless, but acts as a backup).
       localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
       return migrated;
     }
   } catch(e) { /* ignore */ }
 
   return {
-    tasks: [...DEFAULT_TASKS],
-    accounts: [],
-    lastDailyReset: null,
+    tasks:           [...DEFAULT_TASKS],
+    accounts:        [],
+    activeChars:     {},
+    lastDailyReset:  null,
     lastWeeklyReset: null,
   };
 }
 
 function saveState() {
+  state.activeChars = activeChar; // sync before save
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
 function uid(prefix) {
   return prefix + '_' + Math.random().toString(36).slice(2, 9);
+}
+
+// ── HELPERS: task assignment ──
+function isTaskAssignedToChar(task, charId) {
+  if (!task.assignedChars) return true; // null = all
+  return task.assignedChars.includes(charId);
+}
+
+// Returns only tasks assigned to a given character
+function tasksForChar(charId) {
+  return state.tasks.filter(t => isTaskAssignedToChar(t, charId));
 }
 
 // ── WEEK UTILITIES ──
@@ -799,18 +936,21 @@ function toggleTaskManager() {
   const visible = panel.style.display !== 'none';
   panel.style.display = visible ? 'none' : 'block';
   btn.textContent = visible ? '⚙ Task Manager' : '✕ Task Manager';
-  if (!visible) renderTaskManager();
+  if (!visible) {
+    renderTaskManager();
+    renderCharAssignPanel();
+  }
 }
 
 function renderTaskManager() {
-  const listEl = document.getElementById('task-list');
+  const listEl  = document.getElementById('task-list');
   const limitEl = document.getElementById('task-limit-info');
-  const addRow  = document.getElementById('add-task-row');
+  const addSec  = document.getElementById('add-task-section');
   const count   = state.tasks.length;
 
   limitEl.textContent = count + ' / ' + MAX_TASKS + ' task';
   limitEl.className   = 'task-limit-info' + (count >= MAX_TASKS ? ' at-limit' : '');
-  addRow.style.display = count >= MAX_TASKS ? 'none' : 'flex';
+  addSec.style.display = count >= MAX_TASKS ? 'none' : 'block';
 
   listEl.innerHTML = '';
   if (count === 0) {
@@ -823,17 +963,25 @@ function renderTaskManager() {
     item.className = 'task-item';
     item.id = 'task-item-' + task.id;
 
-    // Count how many boxes are checked for this task across all data
     let checkCount = 0;
-    state.accounts.forEach(acc => {
-      acc.chars.forEach(ch => {
-        Object.values(ch.weeklyTasks || {}).forEach(week => {
-          Object.values(week).forEach(day => {
-            if (day[task.id]) checkCount++;
-          });
-        });
+    state.accounts.forEach(acc => acc.chars.forEach(ch => {
+      Object.values(ch.weeklyTasks || {}).forEach(week => {
+        Object.values(week).forEach(day => { if (day[task.id]) checkCount++; });
       });
-    });
+    }));
+
+    // Build assignment badge
+    let scopeBadge = '';
+    if (!task.assignedChars) {
+      scopeBadge = `<span class="task-scope-badge all-badge">✦ Mindenki</span>`;
+    } else {
+      const names = [];
+      state.accounts.forEach(acc => acc.chars.forEach(ch => {
+        if (task.assignedChars.includes(ch.id)) names.push(ch.name);
+      }));
+      const label = names.length === 0 ? '— senki' : names.slice(0,3).map(n => n.split(' ')[0]).join(', ') + (names.length > 3 ? '…' : '');
+      scopeBadge = `<span class="task-scope-badge custom-badge" title="${escHtml(names.join(', '))}">✎ ${escHtml(label)}</span>`;
+    }
 
     item.innerHTML = `
       <div class="task-color-swatch" style="background:${task.color}" title="Szín módosítása">
@@ -844,6 +992,7 @@ function renderTaskManager() {
       <span class="task-name-display" id="tname-${task.id}"
             ondblclick="startRenameTask('${task.id}')"
             title="Duplaklikk az átnevezéshez">${escHtml(task.name)}</span>
+      ${scopeBadge}
       <span class="task-count-badge">${checkCount} pipa</span>
       <button class="btn btn-ghost btn-sm" onclick="startRenameTask('${task.id}')" title="Átnevezés">✏️</button>
       <button class="btn btn-danger" style="padding:3px 8px;font-size:11px;"
@@ -853,6 +1002,88 @@ function renderTaskManager() {
   });
 }
 
+// ── CHARACTER ASSIGNMENT PANEL (in Task Manager) ──
+function renderCharAssignPanel() {
+  const listWrap = document.getElementById('char-assign-list-wrap');
+  const listEl   = document.getElementById('char-assign-list');
+  const summary  = document.getElementById('assign-summary');
+
+  // Show/hide character list
+  listWrap.style.display = newTaskAssignMode === 'custom' ? 'block' : 'none';
+  if (newTaskAssignMode !== 'custom') return;
+
+  // Collect all accounts + chars
+  const allAccounts = state.accounts.filter(a => a.chars.length > 0);
+  if (allAccounts.length === 0) {
+    listEl.innerHTML = '<div class="char-assign-empty">Még nincs karakter egyetlen fiókban sem.</div>';
+    updateAssignSummary();
+    return;
+  }
+
+  listEl.innerHTML = '';
+  allAccounts.forEach(acc => {
+    const block = document.createElement('div');
+    block.className = 'char-assign-account';
+
+    const label = document.createElement('div');
+    label.className = 'char-assign-account-label';
+    label.textContent = acc.name;
+    block.appendChild(label);
+
+    const chipsWrap = document.createElement('div');
+    chipsWrap.className = 'char-assign-chars';
+
+    acc.chars.forEach(ch => {
+      const chip = document.createElement('label');
+      chip.className = 'char-assign-chip' + (newTaskSelectedChars.has(ch.id) ? ' selected' : '');
+      chip.innerHTML = `
+        <input type="checkbox" ${newTaskSelectedChars.has(ch.id) ? 'checked' : ''}
+               onchange="toggleCharAssign('${ch.id}', this.checked)" />
+        <span class="char-assign-dot"></span>
+        ${escHtml(ch.name)}
+      `;
+      chipsWrap.appendChild(chip);
+    });
+
+    block.appendChild(chipsWrap);
+    listEl.appendChild(block);
+  });
+
+  updateAssignSummary();
+}
+
+function setAssignMode(mode) {
+  newTaskAssignMode = mode;
+  document.getElementById('mode-btn-all').classList.toggle('active', mode === 'all');
+  document.getElementById('mode-btn-custom').classList.toggle('active', mode === 'custom');
+  if (mode === 'all') newTaskSelectedChars.clear();
+  renderCharAssignPanel();
+}
+
+function toggleCharAssign(charId, checked) {
+  if (checked) newTaskSelectedChars.add(charId);
+  else         newTaskSelectedChars.delete(charId);
+  // Update chip appearance without full re-render
+  document.querySelectorAll('.char-assign-chip').forEach(chip => {
+    const inp = chip.querySelector('input[type="checkbox"]');
+    if (inp && inp.getAttribute('onchange')?.includes(`'${charId}'`)) {
+      chip.classList.toggle('selected', checked);
+    }
+  });
+  updateAssignSummary();
+}
+
+function updateAssignSummary() {
+  const el = document.getElementById('assign-summary');
+  if (!el) return;
+  const n = newTaskSelectedChars.size;
+  if (n === 0) {
+    el.innerHTML = '<span style="color:var(--red-bright)">⚠ Senki sincs kiválasztva — a task nem fog megjelenni!</span>';
+  } else {
+    el.innerHTML = `<span>${n}</span> karakter kiválasztva`;
+  }
+}
+
 function addTask() {
   if (state.tasks.length >= MAX_TASKS) { showToast('❗ Maximum 10 task lehet!'); return; }
   const nameEl  = document.getElementById('new-task-name');
@@ -860,37 +1091,50 @@ function addTask() {
   const name    = nameEl.value.trim();
   if (!name) { showToast('❗ Kérlek, adj meg egy task nevet!'); return; }
 
-  const task = { id: uid('tsk'), name, color: colorEl.value };
+  // Validate custom mode has at least one char
+  if (newTaskAssignMode === 'custom' && newTaskSelectedChars.size === 0) {
+    showToast('❗ Válassz legalább egy karaktert, vagy kapcsolj "Mindenki" módra!');
+    return;
+  }
+
+  const assignedChars = newTaskAssignMode === 'all'
+    ? null
+    : [...newTaskSelectedChars];
+
+  const task = { id: uid('tsk'), name, color: colorEl.value, assignedChars };
   state.tasks.push(task);
   saveState();
   nameEl.value = '';
+
+  // Reset assignment UI
+  newTaskAssignMode = 'all';
+  newTaskSelectedChars.clear();
+  document.getElementById('mode-btn-all').classList.add('active');
+  document.getElementById('mode-btn-custom').classList.remove('active');
+  document.getElementById('char-assign-list-wrap').style.display = 'none';
+
   renderTaskManager();
   rerenderAllTables();
-  showToast(`✅ "${name}" task hozzáadva`);
+
+  const scopeLabel = assignedChars === null ? 'Mindenki' : `${assignedChars.length} karakter`;
+  showToast(`✅ "${name}" task hozzáadva (${scopeLabel})`);
 }
 
 function deleteTask(taskId) {
   const task = state.tasks.find(t => t.id === taskId);
   if (!task) return;
-
-  // Count total checked boxes for this task
   let total = 0;
   state.accounts.forEach(acc => acc.chars.forEach(ch => {
     Object.values(ch.weeklyTasks || {}).forEach(week => {
       Object.values(week).forEach(day => { if (day[taskId]) total++; });
     });
   }));
-
-  const warnMsg = total > 0
-    ? ` Ez ${total} meglévő pipát is töröl!`
-    : '';
-
+  const warnMsg = total > 0 ? ` Ez ${total} meglévő pipát is töröl!` : '';
   showConfirm(
     `Törlöd a "${task.name}" taskot?`,
     `A task eltávolításra kerül az összes karaktertől.${warnMsg}`,
     () => {
       state.tasks = state.tasks.filter(t => t.id !== taskId);
-      // Remove task data from all chars
       state.accounts.forEach(acc => acc.chars.forEach(ch => {
         Object.values(ch.weeklyTasks || {}).forEach(week => {
           Object.values(week).forEach(day => { delete day[taskId]; });
@@ -908,7 +1152,6 @@ function changeTaskColor(taskId, color) {
   const task = state.tasks.find(t => t.id === taskId);
   if (!task) return;
   task.color = color;
-  // Update swatch live
   const swatch = document.querySelector(`#task-item-${taskId} .task-color-swatch`);
   if (swatch) swatch.style.background = color;
   saveState();
@@ -921,24 +1164,16 @@ function startRenameTask(taskId) {
   const nameEl = document.getElementById('tname-' + taskId);
   if (!nameEl) return;
   const oldName = task.name;
-
   const inp = document.createElement('input');
-  inp.type = 'text';
-  inp.className = 'task-name-edit';
-  inp.value = oldName;
-  inp.maxLength = 30;
-  nameEl.replaceWith(inp);
-  inp.focus(); inp.select();
-
+  inp.type = 'text'; inp.className = 'task-name-edit';
+  inp.value = oldName; inp.maxLength = 30;
+  nameEl.replaceWith(inp); inp.focus(); inp.select();
   const finish = () => {
     const newName = inp.value.trim() || oldName;
-    task.name = newName;
-    saveState();
+    task.name = newName; saveState();
     const span = document.createElement('span');
-    span.className = 'task-name-display';
-    span.id = 'tname-' + taskId;
-    span.title = 'Duplaklikk az átnevezéshez';
-    span.textContent = newName;
+    span.className = 'task-name-display'; span.id = 'tname-' + taskId;
+    span.title = 'Duplaklikk az átnevezéshez'; span.textContent = newName;
     span.ondblclick = () => startRenameTask(taskId);
     inp.replaceWith(span);
     rerenderAllTables();
@@ -963,6 +1198,10 @@ function addAccount() {
   accountWeekOffset[account.id] = 0;
   renderAccount(account);
   updateStats();
+  // Refresh assign panel if task manager is open
+  if (document.getElementById('task-manager-panel').style.display !== 'none') {
+    renderCharAssignPanel();
+  }
   showToast(`✅ "${name}" fiók létrehozva`);
 }
 
@@ -974,9 +1213,13 @@ function deleteAccount(accountId) {
     `Ez a ${acc.chars.length} karaktert és az összes feladatot is eltávolítja.`,
     () => {
       state.accounts = state.accounts.filter(a => a.id !== accountId);
+      delete activeChar[accountId];
       saveState();
       document.getElementById('card-' + accountId)?.remove();
       updateStats(); checkEmpty();
+      if (document.getElementById('task-manager-panel').style.display !== 'none') {
+        renderCharAssignPanel();
+      }
       showToast(`🗑 "${acc.name}" törölve`);
     }
   );
@@ -1018,6 +1261,9 @@ function addCharacter(accountId) {
   acc.chars.push(char);
   saveState(); inputEl.value = '';
   renderCharTable(accountId); updateStats();
+  if (document.getElementById('task-manager-panel').style.display !== 'none') {
+    renderCharAssignPanel();
+  }
   showToast(`⚔ "${name}" karakter hozzáadva`);
 }
 
@@ -1028,19 +1274,37 @@ function deleteCharacter(accountId, charId) {
   if (!ch) return;
   showConfirm(`Törlöd "${ch.name}" karaktert?`, 'A karakter összes feladatadata elvész.', () => {
     acc.chars = acc.chars.filter(c => c.id !== charId);
-    if (activeChar[accountId] === charId) delete activeChar[accountId];
+    if (activeChar[accountId] === charId) {
+      delete activeChar[accountId];
+      saveState();
+    }
+    // Also remove from any task's assignedChars
+    state.tasks.forEach(t => {
+      if (Array.isArray(t.assignedChars)) {
+        t.assignedChars = t.assignedChars.filter(id => id !== charId);
+      }
+    });
+    // Remove from pending selection
+    newTaskSelectedChars.delete(charId);
+
     saveState(); renderCharTable(accountId); updateStats();
+    if (document.getElementById('task-manager-panel').style.display !== 'none') {
+      renderTaskManager();
+      renderCharAssignPanel();
+    }
     showToast(`🗑 "${ch.name}" törölve`);
   });
 }
 
-// ── ACTIVE CHARACTER ──
+// ── ACTIVE CHARACTER — now persisted ──
 function toggleActiveChar(accountId, charId) {
   if (activeChar[accountId] === charId) {
     delete activeChar[accountId];
   } else {
     activeChar[accountId] = charId;
   }
+  saveState(); // ← persist immediately
+
   // Update highlight without full re-render
   const acc = state.accounts.find(a => a.id === accountId);
   if (!acc) return;
@@ -1095,12 +1359,10 @@ function confirmReset(type) {
 }
 function performReset(type) {
   if (type === 'daily') {
-    const wk  = getWeekKey(new Date());
-    const dk  = todayDayKey();
+    const wk = getWeekKey(new Date());
+    const dk = todayDayKey();
     state.accounts.forEach(acc => acc.chars.forEach(ch => {
-      if (ch.weeklyTasks?.[wk]?.[dk]) {
-        ch.weeklyTasks[wk][dk] = {};
-      }
+      if (ch.weeklyTasks?.[wk]?.[dk]) ch.weeklyTasks[wk][dk] = {};
     }));
   } else {
     const wk = getWeekKey(new Date());
@@ -1160,12 +1422,12 @@ function renderCharTable(accountId) {
   const wrap = document.getElementById('char-wrap-' + accountId);
   if (!acc || !wrap) return;
 
-  const offset      = accountWeekOffset[accountId] || 0;
-  const weekDates   = getWeekDates(offset);
-  const weekKey     = getWeekKey(weekDates[0]);
-  const weekRange   = fmtDate(weekDates[0]) + ' – ' + fmtDate(weekDates[6]);
+  const offset        = accountWeekOffset[accountId] || 0;
+  const weekDates     = getWeekDates(offset);
+  const weekKey       = getWeekKey(weekDates[0]);
+  const weekRange     = fmtDate(weekDates[0]) + ' – ' + fmtDate(weekDates[6]);
   const isCurrentWeek = offset === 0;
-  const tasks       = state.tasks;
+  const allTasks      = state.tasks;
 
   if (acc.chars.length === 0) {
     wrap.innerHTML = `<div style="padding:12px 8px 4px;text-align:center;color:var(--text-dim);font-family:var(--font-mono);font-size:11px;">— Még nincs karakter ebben a fiókban —</div>`;
@@ -1183,8 +1445,16 @@ function renderCharTable(accountId) {
     </th>`;
   }).join('');
 
-  // Task legend for the header
-  const legendItems = tasks.map(t =>
+  // Legend: only show unique tasks that appear for at least one char in this account
+  const accountTaskIds = new Set();
+  acc.chars.forEach(ch => {
+    allTasks.forEach(t => {
+      if (isTaskAssignedToChar(t, ch.id)) accountTaskIds.add(t.id);
+    });
+  });
+  const visibleTasks = allTasks.filter(t => accountTaskIds.has(t.id));
+
+  const legendItems = visibleTasks.map(t =>
     `<span style="display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:${t.color};">
        <span style="width:8px;height:8px;border-radius:2px;background:${t.color}22;border:1px solid ${t.color};display:inline-block;"></span>
        ${escHtml(t.name)}
@@ -1193,29 +1463,35 @@ function renderCharTable(accountId) {
 
   // Character rows
   const rows = acc.chars.map(ch => {
-    const weekData = ch.weeklyTasks?.[weekKey] || {};
-    const isActive = activeChar[accountId] === ch.id;
+    const weekData  = ch.weeklyTasks?.[weekKey] || {};
+    const isActive  = activeChar[accountId] === ch.id;
+    const charTasks = tasksForChar(ch.id); // tasks assigned to this character
 
-    // Task label column (in name cell)
-    const taskLabels = tasks.map(t =>
+    // Task labels in name cell (only assigned tasks)
+    const taskLabels = charTasks.map(t =>
       `<span class="task-label" style="color:${t.color};">
          <span class="task-label-dot" style="background:${t.color};"></span>${escHtml(t.name)}
        </span>`
     ).join('');
 
-    // Day cells — one checkbox per task per day
+    // Day cells
     const dayCells = weekDates.map((d,i) => {
       const dayKey  = DAY_KEYS[i];
       const dayData = weekData[dayKey] || {};
       const pastCls = isPast(d) && !isToday(d) ? ' past' : '';
 
-      const checkboxes = tasks.map(t => {
-        const checked = dayData[t.id] ? 'checked' : '';
-        return `<label class="cb-wrap cb-dyn${pastCls}"
+      // Render ALL tasks but grey-out unassigned ones
+      const checkboxes = allTasks.map(t => {
+        const assigned  = isTaskAssignedToChar(t, ch.id);
+        const checked   = dayData[t.id] ? 'checked' : '';
+        const disabledCls = !assigned ? ' not-assigned' : '';
+        const disabledAttr = !assigned ? 'disabled style="pointer-events:none;"' : '';
+
+        return `<label class="cb-wrap cb-dyn${pastCls}${disabledCls}"
                        style="--cb-color:${t.color}"
-                       title="${DAY_FULL[i]} – ${escHtml(t.name)}">
-                  <input type="checkbox" ${checked}
-                         onchange="toggleWeeklyTask('${acc.id}','${ch.id}','${weekKey}','${dayKey}','${t.id}',this.checked)"/>
+                       title="${assigned ? (DAY_FULL[i] + ' – ' + escHtml(t.name)) : escHtml(t.name) + ' (nem elérhető ennél a karakternél)'}">
+                  <input type="checkbox" ${checked} ${disabledAttr}
+                         ${assigned ? `onchange="toggleWeeklyTask('${acc.id}','${ch.id}','${weekKey}','${dayKey}','${t.id}',this.checked)"` : ''}/>
                   <span class="cb-box"></span>
                 </label>`;
       }).join('');
@@ -1231,7 +1507,7 @@ function renderCharTable(accountId) {
               <div class="char-dot"></div>
               <span class="char-name">${escHtml(ch.name)}</span>
             </div>
-            <div class="char-task-labels">${taskLabels}</div>
+            <div class="char-task-labels">${taskLabels || '<span style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);">— nincs task —</span>'}</div>
           </div>
         </td>
         ${dayCells}
@@ -1247,15 +1523,14 @@ function renderCharTable(accountId) {
     ? `Aktuális hét · ${weekRange}`
     : (offset > 0 ? `+${offset} hét · ${weekRange}` : `${offset} hét · ${weekRange}`);
 
-  const noTasks = tasks.length === 0;
-  const colSpan = 7;
+  const noTasks = allTasks.length === 0;
 
   wrap.innerHTML = `
     <table class="char-table">
       <thead>
         <tr>
           <th style="min-width:140px;">Karakter</th>
-          <th colspan="${colSpan}" style="text-align:center;padding-bottom:2px;">
+          <th colspan="7" style="text-align:center;padding-bottom:2px;">
             <div style="display:flex;align-items:center;justify-content:center;gap:6px;padding-bottom:4px;">
               <button class="wn-btn" onclick="changeWeek('${accountId}',-1)" title="Előző hét">◀</button>
               <span style="font-family:var(--font-mono);font-size:10px;color:var(--gold-bright);">🗓 Heti feladatok</span>
