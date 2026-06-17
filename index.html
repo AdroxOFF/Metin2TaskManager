@@ -68,7 +68,7 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
+    /* ── HEADER ── */
     header {
       background: linear-gradient(180deg, #0c0c18 0%, var(--bg-header) 100%);
       border-bottom: 1px solid var(--border-accent);
@@ -78,7 +78,6 @@
       top: 0;
       z-index: 100;
     }
-
     .header-inner {
       display: flex;
       align-items: center;
@@ -88,235 +87,218 @@
       height: 68px;
       gap: 24px;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
+    .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
     .logo-icon {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       background: linear-gradient(135deg, var(--purple-mid), var(--gold-mid));
       border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      box-shadow: var(--shadow-purple);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; box-shadow: var(--shadow-purple);
     }
-
     .logo-text {
       font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-size: 22px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
       background: linear-gradient(90deg, var(--purple-bright), var(--gold-bright));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
+    .header-controls { display: flex; align-items: center; gap: 12px; }
 
-    .header-controls {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* BUTTONS */
+    /* ── BUTTONS ── */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 18px;
-      border-radius: var(--radius-sm);
-      border: 1px solid transparent;
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: var(--transition);
-      white-space: nowrap;
-      user-select: none;
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 18px; border-radius: var(--radius-sm); border: 1px solid transparent;
+      font-family: var(--font-display); font-size: 13px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; transition: var(--transition); white-space: nowrap; user-select: none;
     }
-
     .btn:active { transform: scale(0.97); }
-
     .btn-purple {
       background: linear-gradient(135deg, var(--purple-mid), #4c1d95);
-      border-color: var(--purple-bright);
-      color: #fff;
-      box-shadow: 0 0 12px #7c3aed44;
+      border-color: var(--purple-bright); color: #fff; box-shadow: 0 0 12px #7c3aed44;
     }
     .btn-purple:hover {
       background: linear-gradient(135deg, var(--purple-bright), var(--purple-mid));
       box-shadow: var(--shadow-purple);
     }
-
     .btn-gold {
       background: linear-gradient(135deg, var(--gold-mid), #78350f);
-      border-color: var(--gold-bright);
-      color: var(--gold-bright);
-      box-shadow: 0 0 12px #d4a01733;
+      border-color: var(--gold-bright); color: var(--gold-bright); box-shadow: 0 0 12px #d4a01733;
     }
     .btn-gold:hover {
       background: linear-gradient(135deg, var(--gold-bright), var(--gold-mid));
-      color: #0d0d12;
-      box-shadow: var(--shadow-gold);
+      color: #0d0d12; box-shadow: var(--shadow-gold);
     }
-
+    .btn-teal {
+      background: linear-gradient(135deg, #0d7377, #144d51);
+      border-color: #14a9ae; color: #14ffff; box-shadow: 0 0 12px #0d737733;
+    }
+    .btn-teal:hover {
+      background: linear-gradient(135deg, #14a9ae, #0d7377);
+      box-shadow: 0 0 20px #14ffff33;
+    }
     .btn-danger {
-      background: var(--red-dim);
-      border-color: var(--red-bright);
-      color: var(--red-bright);
-      padding: 5px 10px;
-      font-size: 12px;
+      background: var(--red-dim); border-color: var(--red-bright);
+      color: var(--red-bright); padding: 5px 10px; font-size: 12px;
     }
-    .btn-danger:hover {
-      background: #7f1d1d;
-      box-shadow: 0 0 10px #f8717133;
-    }
-
+    .btn-danger:hover { background: #7f1d1d; box-shadow: 0 0 10px #f8717133; }
     .btn-ghost {
-      background: transparent;
-      border-color: var(--border-dim);
-      color: var(--text-secondary);
-      padding: 5px 12px;
-      font-size: 12px;
+      background: transparent; border-color: var(--border-dim);
+      color: var(--text-secondary); padding: 5px 12px; font-size: 12px;
     }
-    .btn-ghost:hover {
-      border-color: var(--purple-bright);
-      color: var(--text-purple);
-    }
+    .btn-ghost:hover { border-color: var(--purple-bright); color: var(--text-purple); }
+    .btn-sm { padding: 5px 12px; font-size: 12px; }
 
-    .btn-sm {
-      padding: 5px 12px;
-      font-size: 12px;
-    }
-
-    /* INPUTS */
-    .input-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
+    /* ── INPUTS ── */
+    .input-row { display: flex; gap: 8px; align-items: center; }
     input[type="text"] {
-      background: var(--bg-input);
-      border: 1px solid var(--border-dim);
-      border-radius: var(--radius-sm);
-      color: var(--text-primary);
-      font-family: var(--font-body);
-      font-size: 14px;
-      padding: 8px 14px;
-      outline: none;
-      transition: var(--transition);
-      min-width: 0;
+      background: var(--bg-input); border: 1px solid var(--border-dim);
+      border-radius: var(--radius-sm); color: var(--text-primary);
+      font-family: var(--font-body); font-size: 14px;
+      padding: 8px 14px; outline: none; transition: var(--transition); min-width: 0;
     }
     input[type="text"]::placeholder { color: var(--text-dim); }
     input[type="text"]:focus {
-      border-color: var(--purple-bright);
-      box-shadow: 0 0 0 2px #a855f722;
+      border-color: var(--purple-bright); box-shadow: 0 0 0 2px #a855f722;
     }
 
-    /* MAIN LAYOUT */
-    main {
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: 32px 24px 64px;
-    }
+    /* ── MAIN ── */
+    main { max-width: 1600px; margin: 0 auto; padding: 32px 24px 64px; }
 
-    /* ACTION BAR */
+    /* ── ACTION BAR ── */
     .action-bar {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 32px;
-      padding: 16px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-dim);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card);
+      display: flex; align-items: center; flex-wrap: wrap; gap: 16px;
+      margin-bottom: 32px; padding: 16px 20px;
+      background: var(--bg-card); border: 1px solid var(--border-dim);
+      border-radius: var(--radius-md); box-shadow: var(--shadow-card);
     }
-
     .action-bar-title {
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      flex-shrink: 0;
+      font-family: var(--font-display); font-size: 13px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary); flex-shrink: 0;
     }
+    .action-bar-sep { width: 1px; height: 28px; background: var(--border-dim); }
+    .reset-section { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .status-info { display: flex; gap: 16px; align-items: center; margin-left: auto; flex-wrap: wrap; }
 
-    .action-bar-sep {
-      width: 1px;
-      height: 28px;
-      background: var(--border-dim);
-    }
-
-    .reset-section {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    /* STATUS CHIPS */
-    .status-info {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      margin-left: auto;
-      flex-wrap: wrap;
-    }
-
+    /* ── CHIPS ── */
     .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      border: 1px solid;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px; border-radius: 999px;
+      font-family: var(--font-mono); font-size: 11px; border: 1px solid;
     }
     .chip-purple { background: var(--purple-dim); border-color: var(--purple-mid); color: var(--text-purple); }
-    .chip-gold   { background: var(--gold-dim);   border-color: var(--gold-mid);   color: var(--gold-bright); }
     .chip-green  { background: var(--green-dim);  border-color: var(--green-bright); color: var(--green-bright); }
-
     .chip-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: pulse 2s ease infinite;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: currentColor; animation: pulse 2s ease infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* ── TASK MANAGER PANEL ── */
+    .task-manager-panel {
+      background: var(--bg-card);
+      border: 1px solid #14a9ae55;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 24px #00000060, 0 0 30px #14ffff11;
+      margin-bottom: 28px;
+      overflow: hidden;
+      animation: panelSlide 0.25s ease both;
+    }
+    @keyframes panelSlide {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .task-manager-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px;
+      background: linear-gradient(90deg, #07222388, #0d0d1c);
+      border-bottom: 1px solid #14a9ae33;
+    }
+    .task-manager-title {
+      font-family: var(--font-display); font-size: 15px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: #14ffff;
+    }
+    .task-manager-body { padding: 16px 20px; }
+
+    /* Task list */
+    .task-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .task-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 12px;
+      background: #0a0a1688;
+      border: 1px solid var(--border-dim);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.15s ease;
+    }
+    .task-item:hover { border-color: #14a9ae44; }
+
+    .task-color-swatch {
+      width: 20px; height: 20px; border-radius: 4px;
+      flex-shrink: 0; cursor: pointer;
+      border: 2px solid #ffffff22;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+      position: relative;
+    }
+    .task-color-swatch:hover { transform: scale(1.15); border-color: #ffffff66; }
+
+    .task-color-input {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
     }
 
-    /* ACCOUNTS GRID */
+    .task-name-display {
+      flex: 1;
+      font-family: var(--font-display); font-size: 14px; font-weight: 600;
+      color: var(--text-primary);
+    }
+    .task-name-edit {
+      flex: 1; background: #0a0a1888;
+      border: 1px solid var(--purple-bright); border-radius: 4px;
+      color: var(--text-primary); font-family: var(--font-display);
+      font-size: 14px; font-weight: 600; padding: 2px 8px; outline: none;
+    }
+
+    .task-count-badge {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); flex-shrink: 0;
+    }
+
+    /* Add task row */
+    .add-task-row {
+      display: flex; gap: 8px; align-items: center;
+      padding-top: 12px; border-top: 1px solid var(--border-dim);
+    }
+    .task-color-pick {
+      width: 34px; height: 34px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-dim); cursor: pointer;
+      background: #1a0a33; padding: 2px; flex-shrink: 0;
+      overflow: hidden;
+    }
+    .task-color-pick input[type="color"] {
+      width: 100%; height: 100%; border: none; padding: 0;
+      cursor: pointer; background: none;
+    }
+    .add-task-row input[type="text"] {
+      flex: 1; font-size: 13px; padding: 6px 12px;
+    }
+
+    /* Max task info */
+    .task-limit-info {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); text-align: right; margin-top: 8px;
+    }
+    .task-limit-info.at-limit { color: var(--red-bright); }
+
+    /* ── ACCOUNTS GRID ── */
     #accounts-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
       gap: 20px;
     }
 
-    /* ACCOUNT CARD */
+    /* ── ACCOUNT CARD ── */
     .account-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-dim);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: var(--bg-card); border: 1px solid var(--border-dim);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-card);
+      overflow: hidden; transition: border-color 0.2s ease, box-shadow 0.2s ease;
       animation: cardIn 0.25s ease both;
     }
     @keyframes cardIn {
@@ -327,464 +309,206 @@
       border-color: var(--purple-dim);
       box-shadow: var(--shadow-card), 0 0 0 1px #5b21b620;
     }
-
     .account-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 14px 18px 12px;
       background: linear-gradient(90deg, #17172888, #12121c);
-      border-bottom: 1px solid var(--border-dim);
-      gap: 10px;
+      border-bottom: 1px solid var(--border-dim); gap: 10px;
     }
-
-    .account-name-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-    }
-
+    .account-name-wrap { display: flex; align-items: center; gap: 10px; min-width: 0; }
     .account-badge {
-      width: 28px;
-      height: 28px;
-      border-radius: var(--radius-sm);
+      width: 28px; height: 28px; border-radius: var(--radius-sm);
       background: linear-gradient(135deg, var(--purple-dim), #0d0d12);
       border: 1px solid var(--purple-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-purple);
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 11px; color: var(--text-purple); flex-shrink: 0;
     }
-
     .account-name {
-      font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-family: var(--font-display); font-size: 16px; font-weight: 700;
+      letter-spacing: 1px; color: var(--text-primary);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
-
     .account-name-input {
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 700;
-      background: #0a0a1888;
-      border: 1px solid var(--purple-bright);
-      border-radius: 4px;
-      color: var(--text-primary);
-      padding: 2px 8px;
-      outline: none;
-      width: 160px;
+      font-family: var(--font-display); font-size: 15px; font-weight: 700;
+      background: #0a0a1888; border: 1px solid var(--purple-bright);
+      border-radius: 4px; color: var(--text-primary); padding: 2px 8px; outline: none; width: 160px;
     }
-
     .account-actions { display: flex; gap: 6px; }
 
-    /* CHARACTER TABLE */
-    .char-table-wrap {
-      padding: 14px 18px;
-    }
-
-    table.char-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .char-table thead tr {
-      border-bottom: 1px solid var(--border-dim);
-    }
-
+    /* ── CHARACTER TABLE ── */
+    .char-table-wrap { padding: 14px 18px; }
+    table.char-table { width: 100%; border-collapse: collapse; }
+    .char-table thead tr { border-bottom: 1px solid var(--border-dim); }
     .char-table th {
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      padding: 4px 8px 8px;
-      text-align: left;
+      font-family: var(--font-display); font-size: 11px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-secondary);
+      padding: 4px 8px 8px; text-align: left;
     }
-
-    /* Day header cells */
     .char-table th.day-col {
-      text-align: center;
-      min-width: 44px;
-      padding: 4px 3px 8px;
+      text-align: center; min-width: 44px; padding: 4px 3px 8px;
     }
+    .day-col-inner { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .day-col-name { font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; }
+    .day-col-date { font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); font-weight: 400; }
 
-    .day-col-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .day-col-name {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .day-col-date {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--text-dim);
-      font-weight: 400;
-    }
-
-    /* Today highlight */
     .day-col.today .day-col-name { color: var(--gold-bright); }
     .day-col.today .day-col-date { color: var(--gold-mid); }
-    .day-col.today-border {
-      position: relative;
-    }
+    .day-col.today-border { position: relative; }
     .day-col.today-border::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 3px; right: 3px;
-      height: 2px;
-      background: var(--gold-bright);
-      border-radius: 1px;
+      content: ''; position: absolute;
+      bottom: 0; left: 3px; right: 3px; height: 2px;
+      background: var(--gold-bright); border-radius: 1px;
     }
-
-    /* Past day dimmed */
     .day-col.past .day-col-name { color: var(--text-dim); opacity: 0.5; }
     .day-col.past .day-col-date { color: var(--text-dim); opacity: 0.4; }
 
     .char-table tbody tr {
-      border-bottom: 1px solid #1a1a2a;
-      transition: background 0.15s ease;
+      border-bottom: 1px solid #1a1a2a; transition: background 0.15s ease;
     }
     .char-table tbody tr:last-child { border-bottom: none; }
     .char-table tbody tr:hover { background: var(--bg-card-hover); }
+    .char-table td { padding: 6px 8px; vertical-align: middle; }
 
-    .char-table td {
-      padding: 6px 8px;
-      vertical-align: middle;
-    }
-
-    /* Character name cell — two label rows */
+    /* ── ACTIVE CHARACTER HIGHLIGHT ── */
     .char-name-cell {
-      display: flex;
-      flex-direction: column;
-      gap: 0px;
-      min-width: 110px;
+      display: flex; flex-direction: column; gap: 0px;
+      min-width: 120px; cursor: pointer;
     }
-
     .char-name-top {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
+      padding: 4px 6px; border-radius: var(--radius-sm);
+      border: 1.5px solid transparent;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .char-name-top:hover {
+      border-color: var(--gold-dim);
+      background: #f5c84208;
+    }
+    .char-name-top.active-char {
+      border-color: var(--gold-bright) !important;
+      box-shadow: 0 0 12px #f5c84255, 0 0 24px #f5c84222, inset 0 0 8px #f5c84210;
+      background: #f5c84210 !important;
     }
 
-    .char-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--purple-mid);
-      flex-shrink: 0;
-    }
+    .char-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple-mid); flex-shrink: 0; }
+    .char-name { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--text-primary); }
 
-    .char-name {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    /* Task label rows inside the name cell */
+    /* Task label rows inside name cell */
     .char-task-labels {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      padding-left: 14px;
-      margin-top: 4px;
+      display: flex; flex-direction: column; gap: 1px;
+      padding-left: 20px; margin-top: 3px;
     }
-
     .task-label {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
+      display: flex; align-items: center; gap: 4px;
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 0.5px; white-space: nowrap;
     }
+    .task-label-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
 
-    .task-label-latok {
-      color: var(--gold-mid);
-    }
+    /* ── DAY CELLS — stacked checkboxes ── */
+    .char-table td.day-cell { text-align: center; padding: 4px 3px; vertical-align: middle; }
+    .day-cell-stack { display: flex; flex-direction: column; align-items: center; gap: 3px; }
 
-    .task-label-szilank {
-      color: var(--text-purple);
-    }
-
-    .task-label-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .task-label-dot-gold   { background: var(--gold-mid); }
-    .task-label-dot-purple { background: var(--purple-mid); }
-
-    /* Day cells — stacked double checkbox */
-    .char-table td.day-cell {
-      text-align: center;
-      padding: 5px 3px;
-      vertical-align: middle;
-    }
-
-    .day-cell-stack {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-
-    /* CUSTOM CHECKBOXES */
+    /* ── CUSTOM CHECKBOXES ── */
     .cb-wrap {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
     }
-
     .cb-wrap input[type="checkbox"] { display: none; }
-
     .cb-box {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      border: 1.5px solid;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      position: relative;
-      flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 3px; border: 1.5px solid;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition); position: relative; flex-shrink: 0;
     }
-
-    /* Weekly day checkbox — gold theme (Látók Párbaja) */
-    .cb-day .cb-box {
-      width: 20px;
-      height: 20px;
-      border-color: var(--gold-mid);
-      background: #3a2a0422;
-      border-radius: 3px;
-    }
-    .cb-day input:checked ~ .cb-box {
-      border-color: var(--gold-bright);
-      background: var(--gold-dim);
-      box-shadow: 0 0 6px #f5c84255;
-    }
-    .cb-day .cb-box::after {
-      content: '';
-      display: none;
-      width: 4px;
-      height: 9px;
-      border: 2px solid var(--gold-bright);
-      border-top: none;
-      border-left: none;
+    /* Checkmark */
+    .cb-box::after {
+      content: ''; display: none;
+      width: 4px; height: 9px;
+      border: 2px solid currentColor;
+      border-top: none; border-left: none;
       transform: rotate(45deg) translate(-1px, -1px);
     }
-    .cb-day input:checked ~ .cb-box::after { display: block; }
+    .cb-wrap input:checked ~ .cb-box::after { display: block; }
 
-    /* Weekly day checkbox — purple theme (Szilizés) */
-    .cb-szilank .cb-box {
-      width: 20px;
-      height: 20px;
-      border-color: var(--purple-mid);
-      background: #1a0a3322;
-      border-radius: 3px;
+    /* Dynamic colored checkbox — color set via inline style */
+    .cb-dyn .cb-box {
+      border-color: var(--cb-color, var(--gold-mid));
+      background: color-mix(in srgb, var(--cb-color, var(--gold-mid)) 8%, transparent);
     }
-    .cb-szilank input:checked ~ .cb-box {
-      border-color: var(--purple-bright);
-      background: var(--purple-dim);
-      box-shadow: 0 0 6px #a855f755;
+    .cb-dyn input:checked ~ .cb-box {
+      background: color-mix(in srgb, var(--cb-color, var(--gold-mid)) 22%, #0d0d12);
+      box-shadow: 0 0 6px color-mix(in srgb, var(--cb-color, var(--gold-mid)) 50%, transparent);
     }
-    .cb-szilank .cb-box::after {
-      content: '';
-      display: none;
-      width: 4px;
-      height: 9px;
-      border: 2px solid var(--purple-bright);
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg) translate(-1px, -1px);
+    .cb-dyn .cb-box::after {
+      color: var(--cb-color, var(--gold-bright));
     }
-    .cb-szilank input:checked ~ .cb-box::after { display: block; }
-
-    /* Past day cell dimmed */
-    .cb-day.past .cb-box,
-    .cb-szilank.past .cb-box {
-      border-color: #2a2a3a;
-      background: #0d0d1a;
-      opacity: 0.55;
+    .cb-dyn.past .cb-box {
+      border-color: #2a2a3a; background: #0d0d1a; opacity: 0.55;
     }
-    .cb-day.past input:checked ~ .cb-box {
-      border-color: #6b5a20;
-      background: #2a1f04;
-      box-shadow: none;
-      opacity: 0.7;
-    }
-    .cb-szilank.past input:checked ~ .cb-box {
-      border-color: #4a2a6a;
-      background: #1a0a30;
-      box-shadow: none;
-      opacity: 0.7;
+    .cb-dyn.past input:checked ~ .cb-box {
+      border-color: #44444a; background: #1a1a22; box-shadow: none; opacity: 0.65;
     }
 
-    /* ADD CHARACTER ROW */
+    /* ── ADD CHARACTER ROW ── */
     .add-char-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      padding: 10px 18px 14px;
-      border-top: 1px solid var(--border-dim);
+      display: flex; gap: 8px; align-items: center;
+      padding: 10px 18px 14px; border-top: 1px solid var(--border-dim);
     }
+    .add-char-row input[type="text"] { flex: 1; font-size: 13px; padding: 6px 12px; }
 
-    .add-char-row input[type="text"] {
-      flex: 1;
-      font-size: 13px;
-      padding: 6px 12px;
-    }
-
-    /* Week nav buttons */
+    /* ── WEEK NAV ── */
     .wn-btn {
-      background: transparent;
-      border: 1px solid var(--gold-dim);
-      border-radius: 3px;
-      color: var(--gold-mid);
-      cursor: pointer;
-      font-size: 12px;
-      padding: 2px 7px;
-      transition: var(--transition);
-      font-family: var(--font-mono);
+      background: transparent; border: 1px solid var(--gold-dim); border-radius: 3px;
+      color: var(--gold-mid); cursor: pointer; font-size: 12px; padding: 2px 7px;
+      transition: var(--transition); font-family: var(--font-mono);
     }
-    .wn-btn:hover {
-      border-color: var(--gold-bright);
-      color: var(--gold-bright);
-    }
-
+    .wn-btn:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
     .wn-today-btn {
-      background: #3a2a0444;
-      border: 1px solid var(--gold-dim);
-      border-radius: 3px;
-      color: var(--gold-bright);
-      cursor: pointer;
-      font-size: 10px;
-      padding: 2px 7px;
-      transition: var(--transition);
-      font-family: var(--font-display);
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      background: #3a2a0444; border: 1px solid var(--gold-dim); border-radius: 3px;
+      color: var(--gold-bright); cursor: pointer; font-size: 10px; padding: 2px 7px;
+      transition: var(--transition); font-family: var(--font-display);
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
     }
-    .wn-today-btn:hover {
-      background: var(--gold-dim);
-    }
+    .wn-today-btn:hover { background: var(--gold-dim); }
 
-    /* EMPTY STATE */
-    .empty-state {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-dim);
-    }
+    /* ── EMPTY STATE ── */
+    .empty-state { text-align: center; padding: 40px 20px; color: var(--text-dim); }
     .empty-state-icon { font-size: 36px; margin-bottom: 12px; }
-    .empty-state-text {
-      font-family: var(--font-display);
-      font-size: 14px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+    .empty-state-text { font-family: var(--font-display); font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
 
-    /* CONFIRMATION MODAL */
+    /* ── MODAL ── */
     .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: #00000088;
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      animation: fadeIn 0.15s ease;
+      position: fixed; inset: 0; background: #00000088;
+      backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center;
+      z-index: 999; animation: fadeIn 0.15s ease;
     }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
     .modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border-accent);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      max-width: 400px;
-      width: 90%;
-      box-shadow: 0 8px 48px #00000090, var(--shadow-purple);
-      animation: modalIn 0.2s ease;
+      background: var(--bg-card); border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg); padding: 28px 32px; max-width: 400px; width: 90%;
+      box-shadow: 0 8px 48px #00000090, var(--shadow-purple); animation: modalIn 0.2s ease;
     }
     @keyframes modalIn {
       from { opacity: 0; transform: scale(0.95) translateY(-10px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
-
-    .modal-title {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      color: var(--text-primary);
-    }
-
-    .modal-body {
-      color: var(--text-secondary);
-      font-size: 14px;
-      margin-bottom: 24px;
-      line-height: 1.6;
-    }
-
+    .modal-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; color: var(--text-primary); }
+    .modal-body { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; line-height: 1.6; }
     .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
 
-    /* TOAST */
+    /* ── TOAST ── */
     #toast {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      background: var(--bg-card);
-      border: 1px solid var(--purple-bright);
-      border-radius: var(--radius-md);
-      padding: 12px 20px;
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: var(--text-purple);
-      box-shadow: var(--shadow-purple);
-      z-index: 9999;
-      display: none;
-      animation: toastIn 0.2s ease;
+      position: fixed; bottom: 28px; right: 28px;
+      background: var(--bg-card); border: 1px solid var(--purple-bright);
+      border-radius: var(--radius-md); padding: 12px 20px;
+      font-family: var(--font-display); font-size: 13px; font-weight: 600;
+      letter-spacing: 1px; color: var(--text-purple); box-shadow: var(--shadow-purple);
+      z-index: 9999; display: none; animation: toastIn 0.2s ease;
     }
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     .reset-timestamps {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-dim);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      font-family: var(--font-mono); font-size: 10px; color: var(--text-dim);
+      display: flex; flex-direction: column; gap: 2px;
     }
 
     ::-webkit-scrollbar { width: 6px; }
@@ -821,35 +545,53 @@
 
 <main>
 
+  <!-- ACTION BAR -->
   <div class="action-bar">
     <span class="action-bar-title">⚡ Reset műveletek</span>
     <div class="action-bar-sep"></div>
     <div class="reset-section">
-      <button class="btn btn-purple" onclick="confirmReset('daily')">
-        🌅 Napi Reset
-      </button>
-      <button class="btn btn-gold" onclick="confirmReset('weekly')">
-        📅 Heti Reset
-      </button>
+      <button class="btn btn-purple" onclick="confirmReset('daily')">🌅 Napi Reset</button>
+      <button class="btn btn-gold"   onclick="confirmReset('weekly')">📅 Heti Reset</button>
+      <button class="btn btn-teal"   onclick="toggleTaskManager()" id="task-manager-btn">⚙ Task Manager</button>
     </div>
     <div class="status-info">
       <div class="reset-timestamps" id="reset-timestamps">
         <span>Napi reset: —</span>
         <span>Heti reset: —</span>
       </div>
-      <div class="chip chip-purple" id="chip-accounts">
+      <div class="chip chip-purple">
         <span class="chip-dot"></span>
         <span id="chip-accounts-text">0 fiók</span>
       </div>
-      <div class="chip chip-green" id="chip-chars">
+      <div class="chip chip-green">
         <span class="chip-dot"></span>
         <span id="chip-chars-text">0 karakter</span>
       </div>
     </div>
   </div>
 
-  <div id="accounts-container"></div>
+  <!-- TASK MANAGER PANEL (hidden by default) -->
+  <div id="task-manager-panel" class="task-manager-panel" style="display:none;">
+    <div class="task-manager-header">
+      <span class="task-manager-title">⚙ Task Manager — Feladatok kezelése</span>
+      <button class="btn btn-ghost btn-sm" onclick="toggleTaskManager()">✕ Bezár</button>
+    </div>
+    <div class="task-manager-body">
+      <div class="task-list" id="task-list"></div>
+      <div class="add-task-row" id="add-task-row">
+        <div class="task-color-pick" title="Válassz színt">
+          <input type="color" id="new-task-color" value="#f5c842" />
+        </div>
+        <input type="text" id="new-task-name" placeholder="Új feladat neve…" maxlength="30"
+               onkeydown="if(event.key==='Enter') addTask()" />
+        <button class="btn btn-teal btn-sm" onclick="addTask()">+ Task</button>
+      </div>
+      <div class="task-limit-info" id="task-limit-info">0 / 10 task</div>
+    </div>
+  </div>
 
+  <!-- ACCOUNTS -->
+  <div id="accounts-container"></div>
   <div id="empty-state" class="empty-state" style="display:none;">
     <div class="empty-state-icon">🏰</div>
     <div class="empty-state-text">Még nincs fiók — hozz létre egyet fent!</div>
@@ -860,624 +602,745 @@
 <div id="toast"></div>
 
 <script>
-  // ============================================================
-  //  DATA MODEL
-  //  {
-  //    accounts: [
-  //      {
-  //        id: "acc_xxx",
-  //        name: "Account 1",
-  //        chars: [
-  //          {
-  //            id: "chr_xxx",
-  //            name: "Karakter neve",
-  //            tasks: {
-  //              weeklyTasks: {
-  //                "2025-W22": {
-  //                  "Mon": { latok: false, szilank: false },
-  //                  "Tue": { latok: false, szilank: false },
-  //                  ...
-  //                }
-  //              }
-  //            }
-  //          }
-  //        ]
-  //      }
-  //    ],
-  //    lastDailyReset: null,
-  //    lastWeeklyReset: null
-  //  }
-  // ============================================================
+// ================================================================
+//  DATA MODEL v5
+//  state = {
+//    tasks: [
+//      { id: "tsk_xxx", name: "Látók Párbaja", color: "#f5c842" },
+//      { id: "tsk_yyy", name: "Szilizés",      color: "#a855f7" },
+//      ...up to 10
+//    ],
+//    accounts: [
+//      {
+//        id: "acc_xxx", name: "Account 1",
+//        chars: [
+//          {
+//            id: "chr_xxx", name: "Karakter neve",
+//            weeklyTasks: {
+//              "2025-W22": {
+//                "Mon": { "tsk_xxx": true, "tsk_yyy": false, ... },
+//                "Tue": { ... },
+//                ...
+//              }
+//            }
+//          }
+//        ]
+//      }
+//    ],
+//    lastDailyReset: null,
+//    lastWeeklyReset: null
+//  }
+// ================================================================
 
-  const STORAGE_KEY = 'gtt_data_v4';
+const STORAGE_KEY     = 'gtt_data_v5';
+const LEGACY_STORAGE_KEY = 'gtt_data_v4'; // previous version's key — read once for migration
+const MAX_TASKS   = 10;
 
-  // Per-account week offset (how many weeks forward/back from current)
-  const accountWeekOffset = {};
+// Per-account week offset (memory only)
+const accountWeekOffset = {};
 
-  const DAY_KEYS  = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const DAY_NAMES = ['H', 'K', 'Sz', 'Cs', 'P', 'Szo', 'V'];
-  const DAY_FULL  = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap'];
+// Active character per account (memory only)
+const activeChar = {};
 
-  // ---------- State ----------
-  let state = loadState();
+const DAY_KEYS  = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const DAY_NAMES = ['H','K','Sz','Cs','P','Szo','V'];
+const DAY_FULL  = ['Hétfő','Kedd','Szerda','Csütörtök','Péntek','Szombat','Vasárnap'];
 
-  function loadState() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        // Migrate old v3 data to v4
-        (parsed.accounts || []).forEach(acc => {
-          (acc.chars || []).forEach(ch => {
-            if (!ch.tasks) ch.tasks = {};
+// ── DEFAULT TASKS (used when starting fresh or migrating)
+const DEFAULT_TASKS = [
+  { id: 'tsk_latok',   name: 'Látók Párbaja', color: '#f5c842' },
+  { id: 'tsk_szilank', name: 'Szilizés',      color: '#a855f7' },
+];
 
-            // If old boolean daily fields exist, remove them
-            delete ch.tasks.latokParbaja;
-            delete ch.tasks.szilizes;
+// ── STATE ──
+let state = loadState();
 
-            // Migrate old weeklyLatok (per-day boolean) -> weeklyTasks (per-day object)
-            if (!ch.tasks.weeklyTasks) {
-              ch.tasks.weeklyTasks = {};
-              if (ch.tasks.weeklyLatok && typeof ch.tasks.weeklyLatok === 'object') {
-                Object.entries(ch.tasks.weeklyLatok).forEach(([wk, days]) => {
-                  ch.tasks.weeklyTasks[wk] = {};
-                  DAY_KEYS.forEach(dk => {
-                    ch.tasks.weeklyTasks[wk][dk] = {
-                      latok: !!(days && days[dk]),
-                      szilank: false
-                    };
-                  });
-                });
-              }
-            }
-            delete ch.tasks.weeklyLatok;
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const p = JSON.parse(raw);
+
+      // Ensure global tasks array
+      if (!Array.isArray(p.tasks)) p.tasks = [...DEFAULT_TASKS];
+
+      // Migrate characters (v4 -> v5 per-char shape, in case an old-shaped
+      // object ever ended up under the v5 key)
+      (p.accounts || []).forEach(acc => {
+        (acc.chars || []).forEach(ch => {
+          // v4 format: ch.tasks.weeklyTasks
+          if (ch.tasks && ch.tasks.weeklyTasks && !ch.weeklyTasks) {
+            ch.weeklyTasks = {};
+            const wt = ch.tasks.weeklyTasks;
+            Object.entries(wt).forEach(([wk, days]) => {
+              ch.weeklyTasks[wk] = {};
+              Object.entries(days).forEach(([dk, val]) => {
+                ch.weeklyTasks[wk][dk] = {};
+                if (typeof val === 'object') {
+                  // Map latok -> tsk_latok, szilank -> tsk_szilank
+                  if (val.latok   !== undefined) ch.weeklyTasks[wk][dk]['tsk_latok']   = !!val.latok;
+                  if (val.szilank !== undefined) ch.weeklyTasks[wk][dk]['tsk_szilank'] = !!val.szilank;
+                }
+              });
+            });
+            delete ch.tasks;
+          }
+          if (!ch.weeklyTasks) ch.weeklyTasks = {};
+        });
+      });
+
+      return {
+        tasks: p.tasks,
+        accounts: p.accounts || [],
+        lastDailyReset: p.lastDailyReset || null,
+        lastWeeklyReset: p.lastWeeklyReset || null,
+      };
+    }
+
+    // No v5 data yet — check for older (v4) data saved by the previous
+    // version of this tool under a different storage key, and migrate it
+    // in place so existing accounts/characters/checkmarks aren't lost.
+    const legacyRaw = localStorage.getItem(LEGACY_STORAGE_KEY);
+    if (legacyRaw) {
+      const legacy = JSON.parse(legacyRaw);
+      const migrated = {
+        tasks: [...DEFAULT_TASKS],
+        accounts: (legacy.accounts || []).map(acc => ({
+          id: acc.id,
+          name: acc.name,
+          chars: (acc.chars || []).map(ch => {
+            const weeklyTasks = {};
+            const wt = (ch.tasks && ch.tasks.weeklyTasks) || {};
+            Object.entries(wt).forEach(([wk, days]) => {
+              weeklyTasks[wk] = {};
+              Object.entries(days || {}).forEach(([dk, val]) => {
+                weeklyTasks[wk][dk] = {};
+                if (val && typeof val === 'object') {
+                  if (val.latok   !== undefined) weeklyTasks[wk][dk]['tsk_latok']   = !!val.latok;
+                  if (val.szilank !== undefined) weeklyTasks[wk][dk]['tsk_szilank'] = !!val.szilank;
+                }
+              });
+            });
+            return { id: ch.id, name: ch.name, weeklyTasks };
+          }),
+        })),
+        lastDailyReset: legacy.lastDailyReset || null,
+        lastWeeklyReset: legacy.lastWeeklyReset || null,
+      };
+
+      // Persist immediately under the new key so this only runs once,
+      // and leave the old key intact (harmless, but acts as a backup).
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+      return migrated;
+    }
+  } catch(e) { /* ignore */ }
+
+  return {
+    tasks: [...DEFAULT_TASKS],
+    accounts: [],
+    lastDailyReset: null,
+    lastWeeklyReset: null,
+  };
+}
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function uid(prefix) {
+  return prefix + '_' + Math.random().toString(36).slice(2, 9);
+}
+
+// ── WEEK UTILITIES ──
+function getMondayOfWeek(date) {
+  const d = new Date(date);
+  const day = d.getDay();
+  const diff = day === 0 ? -6 : 1 - day;
+  d.setDate(d.getDate() + diff);
+  d.setHours(0,0,0,0);
+  return d;
+}
+function getWeekKey(date) {
+  const monday = getMondayOfWeek(date);
+  const year   = monday.getFullYear();
+  const start  = new Date(year, 0, 1);
+  const weekNum = Math.ceil(((monday - start) / 86400000 + start.getDay() + 1) / 7);
+  return year + '-W' + String(weekNum).padStart(2,'0');
+}
+function getWeekDates(offset) {
+  const base = new Date();
+  base.setDate(base.getDate() + offset * 7);
+  const monday = getMondayOfWeek(base);
+  return DAY_KEYS.map((_,i) => {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    return d;
+  });
+}
+function fmtDate(date) {
+  return (date.getMonth()+1) + '.' + String(date.getDate()).padStart(2,'0');
+}
+function isToday(date) {
+  const now = new Date();
+  return date.getFullYear()===now.getFullYear() && date.getMonth()===now.getMonth() && date.getDate()===now.getDate();
+}
+function isPast(date) {
+  const now = new Date(); now.setHours(0,0,0,0); return date < now;
+}
+function todayDayKey() {
+  const map = [6,0,1,2,3,4,5];
+  return DAY_KEYS[map[new Date().getDay()]];
+}
+
+// ── TASK MANAGER ──
+function toggleTaskManager() {
+  const panel = document.getElementById('task-manager-panel');
+  const btn   = document.getElementById('task-manager-btn');
+  const visible = panel.style.display !== 'none';
+  panel.style.display = visible ? 'none' : 'block';
+  btn.textContent = visible ? '⚙ Task Manager' : '✕ Task Manager';
+  if (!visible) renderTaskManager();
+}
+
+function renderTaskManager() {
+  const listEl = document.getElementById('task-list');
+  const limitEl = document.getElementById('task-limit-info');
+  const addRow  = document.getElementById('add-task-row');
+  const count   = state.tasks.length;
+
+  limitEl.textContent = count + ' / ' + MAX_TASKS + ' task';
+  limitEl.className   = 'task-limit-info' + (count >= MAX_TASKS ? ' at-limit' : '');
+  addRow.style.display = count >= MAX_TASKS ? 'none' : 'flex';
+
+  listEl.innerHTML = '';
+  if (count === 0) {
+    listEl.innerHTML = '<div style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-align:center;padding:8px;">— Még nincs task —</div>';
+    return;
+  }
+
+  state.tasks.forEach(task => {
+    const item = document.createElement('div');
+    item.className = 'task-item';
+    item.id = 'task-item-' + task.id;
+
+    // Count how many boxes are checked for this task across all data
+    let checkCount = 0;
+    state.accounts.forEach(acc => {
+      acc.chars.forEach(ch => {
+        Object.values(ch.weeklyTasks || {}).forEach(week => {
+          Object.values(week).forEach(day => {
+            if (day[task.id]) checkCount++;
           });
         });
-        return parsed;
-      }
-    } catch(e) { /* ignore */ }
-    return { accounts: [], lastDailyReset: null, lastWeeklyReset: null };
-  }
-
-  function saveState() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }
-
-  function uid(prefix) {
-    return prefix + '_' + Math.random().toString(36).slice(2, 9);
-  }
-
-  // ============================================================
-  //  WEEK UTILITIES
-  // ============================================================
-
-  function getMondayOfWeek(date) {
-    const d = new Date(date);
-    const day = d.getDay();
-    const diff = (day === 0) ? -6 : 1 - day;
-    d.setDate(d.getDate() + diff);
-    d.setHours(0, 0, 0, 0);
-    return d;
-  }
-
-  function getWeekKey(date) {
-    const monday = getMondayOfWeek(date);
-    const year = monday.getFullYear();
-    const start = new Date(year, 0, 1);
-    const weekNum = Math.ceil(((monday - start) / 86400000 + start.getDay() + 1) / 7);
-    return year + '-W' + String(weekNum).padStart(2, '0');
-  }
-
-  function getWeekDates(offset) {
-    const base = new Date();
-    base.setDate(base.getDate() + offset * 7);
-    const monday = getMondayOfWeek(base);
-    return DAY_KEYS.map((_, i) => {
-      const d = new Date(monday);
-      d.setDate(monday.getDate() + i);
-      return d;
-    });
-  }
-
-  function fmtDate(date) {
-    return (date.getMonth() + 1) + '.' + String(date.getDate()).padStart(2, '0');
-  }
-
-  function isToday(date) {
-    const now = new Date();
-    return date.getFullYear() === now.getFullYear() &&
-           date.getMonth() === now.getMonth() &&
-           date.getDate() === now.getDate();
-  }
-
-  function isPast(date) {
-    const now = new Date();
-    now.setHours(0,0,0,0);
-    return date < now;
-  }
-
-  // Returns the DAY_KEY for today (e.g. "Mon")
-  function todayDayKey() {
-    const day = new Date().getDay(); // 0=Sun
-    const map = [6, 0, 1, 2, 3, 4, 5]; // Sun->6, Mon->0 ... Sat->5
-    return DAY_KEYS[map[day]];
-  }
-
-  // ============================================================
-  //  HELPERS — ensure task slot exists
-  // ============================================================
-  function ensureTaskSlot(ch, weekKey, dayKey) {
-    if (!ch.tasks.weeklyTasks) ch.tasks.weeklyTasks = {};
-    if (!ch.tasks.weeklyTasks[weekKey]) ch.tasks.weeklyTasks[weekKey] = {};
-    if (!ch.tasks.weeklyTasks[weekKey][dayKey]) {
-      ch.tasks.weeklyTasks[weekKey][dayKey] = { latok: false, szilank: false };
-    }
-  }
-
-  // ============================================================
-  //  ACCOUNT CRUD
-  // ============================================================
-
-  function addAccount() {
-    const input = document.getElementById('new-account-input');
-    const name = input.value.trim();
-    if (!name) { showToast('❗ Kérlek, adj meg egy fiók nevet!'); return; }
-
-    const account = { id: uid('acc'), name, chars: [] };
-    state.accounts.push(account);
-    saveState();
-    input.value = '';
-    accountWeekOffset[account.id] = 0;
-    renderAccount(account);
-    updateStats();
-    showToast(`✅ "${name}" fiók létrehozva`);
-  }
-
-  function deleteAccount(accountId) {
-    const acc = state.accounts.find(a => a.id === accountId);
-    if (!acc) return;
-    showConfirm(
-      `Törlöd a "${acc.name}" fiókot?`,
-      `Ez a ${acc.chars.length} karaktert és az összes feladatot is eltávolítja. Ez nem vonható vissza.`,
-      () => {
-        state.accounts = state.accounts.filter(a => a.id !== accountId);
-        saveState();
-        const el = document.getElementById('card-' + accountId);
-        if (el) el.remove();
-        updateStats();
-        checkEmpty();
-        showToast(`🗑 "${acc.name}" törölve`);
-      }
-    );
-  }
-
-  function startRenameAccount(accountId) {
-    const acc = state.accounts.find(a => a.id === accountId);
-    if (!acc) return;
-    const nameEl = document.getElementById('acc-name-' + accountId);
-    const oldName = acc.name;
-
-    const inp = document.createElement('input');
-    inp.type = 'text';
-    inp.className = 'account-name-input';
-    inp.value = oldName;
-    nameEl.replaceWith(inp);
-    inp.focus();
-    inp.select();
-
-    const finish = () => {
-      const newName = inp.value.trim() || oldName;
-      acc.name = newName;
-      saveState();
-      const span = document.createElement('span');
-      span.className = 'account-name';
-      span.id = 'acc-name-' + accountId;
-      span.textContent = newName;
-      inp.replaceWith(span);
-      span.ondblclick = () => startRenameAccount(accountId);
-      const badge = document.getElementById('acc-badge-' + accountId);
-      if (badge) badge.textContent = newName.charAt(0).toUpperCase();
-      showToast(`✏️ Átnevezve: "${newName}"`);
-    };
-
-    inp.onblur = finish;
-    inp.onkeydown = (e) => {
-      if (e.key === 'Enter') inp.blur();
-      if (e.key === 'Escape') { inp.value = oldName; inp.blur(); }
-    };
-  }
-
-  // ============================================================
-  //  CHARACTER CRUD
-  // ============================================================
-
-  function addCharacter(accountId) {
-    const inputEl = document.getElementById('char-input-' + accountId);
-    const name = inputEl.value.trim();
-    if (!name) { showToast('❗ Kérlek, adj meg egy karakter nevet!'); return; }
-
-    const acc = state.accounts.find(a => a.id === accountId);
-    if (!acc) return;
-
-    const char = {
-      id: uid('chr'),
-      name,
-      tasks: { weeklyTasks: {} }
-    };
-    acc.chars.push(char);
-    saveState();
-    inputEl.value = '';
-    renderCharTable(accountId);
-    updateStats();
-    showToast(`⚔ "${name}" karakter hozzáadva`);
-  }
-
-  function deleteCharacter(accountId, charId) {
-    const acc = state.accounts.find(a => a.id === accountId);
-    if (!acc) return;
-    const ch = acc.chars.find(c => c.id === charId);
-    if (!ch) return;
-    showConfirm(
-      `Törlöd "${ch.name}" karaktert?`,
-      'A karakter összes feladatadata elvész.',
-      () => {
-        acc.chars = acc.chars.filter(c => c.id !== charId);
-        saveState();
-        renderCharTable(accountId);
-        updateStats();
-        showToast(`🗑 "${ch.name}" törölve`);
-      }
-    );
-  }
-
-  // ============================================================
-  //  TASK TOGGLE
-  // ============================================================
-
-  function toggleWeeklyTask(accountId, charId, weekKey, dayKey, taskField, checked) {
-    const acc = state.accounts.find(a => a.id === accountId);
-    if (!acc) return;
-    const ch = acc.chars.find(c => c.id === charId);
-    if (!ch) return;
-    ensureTaskSlot(ch, weekKey, dayKey);
-    ch.tasks.weeklyTasks[weekKey][dayKey][taskField] = checked;
-    saveState();
-  }
-
-  // ============================================================
-  //  WEEK NAVIGATION
-  // ============================================================
-
-  function changeWeek(accountId, delta) {
-    if (accountWeekOffset[accountId] === undefined) accountWeekOffset[accountId] = 0;
-    accountWeekOffset[accountId] += delta;
-    renderCharTable(accountId);
-  }
-
-  function goToCurrentWeek(accountId) {
-    accountWeekOffset[accountId] = 0;
-    renderCharTable(accountId);
-  }
-
-  // ============================================================
-  //  RESET LOGIC
-  // ============================================================
-
-  function confirmReset(type) {
-    const isDaily = type === 'daily';
-    showConfirm(
-      isDaily ? '🌅 Napi Reset' : '📅 Heti Reset',
-      isDaily
-        ? 'Ez eltávolítja a mai nap összes pipáját (Látók Párbaja és Szilizés) minden karakternél. A többi nap megmarad.'
-        : 'Ez törli az aktuális hét összes napjának összes pipáját (Látók Párbaja és Szilizés). A többi hét megmarad.',
-      () => {
-        performReset(type);
-        const now = new Date().toISOString();
-        if (isDaily) {
-          state.lastDailyReset = now;
-          showToast('🌅 Napi reset végrehajtva!');
-        } else {
-          state.lastWeeklyReset = now;
-          showToast('📅 Heti reset végrehajtva!');
-        }
-        saveState();
-        updateResetTimestamps();
-        state.accounts.forEach(acc => renderCharTable(acc.id));
-      }
-    );
-  }
-
-  function performReset(type) {
-    if (type === 'daily') {
-      // Clear only today's data
-      const currentWeekKey = getWeekKey(new Date());
-      const todayKey = todayDayKey();
-      state.accounts.forEach(acc => {
-        acc.chars.forEach(ch => {
-          if (ch.tasks.weeklyTasks &&
-              ch.tasks.weeklyTasks[currentWeekKey] &&
-              ch.tasks.weeklyTasks[currentWeekKey][todayKey]) {
-            ch.tasks.weeklyTasks[currentWeekKey][todayKey] = { latok: false, szilank: false };
-          }
-        });
       });
-    } else {
-      // Weekly reset: clear the entire current week
-      const currentWeekKey = getWeekKey(new Date());
-      state.accounts.forEach(acc => {
-        acc.chars.forEach(ch => {
-          if (ch.tasks.weeklyTasks && ch.tasks.weeklyTasks[currentWeekKey]) {
-            delete ch.tasks.weeklyTasks[currentWeekKey];
-          }
-        });
-      });
-    }
-  }
-
-  // ============================================================
-  //  RENDER
-  // ============================================================
-
-  function renderAll() {
-    const container = document.getElementById('accounts-container');
-    container.innerHTML = '';
-    state.accounts.forEach(acc => {
-      accountWeekOffset[acc.id] = 0;
-      renderAccount(acc);
     });
-    updateStats();
-    updateResetTimestamps();
-    checkEmpty();
-  }
 
-  function renderAccount(acc) {
-    const container = document.getElementById('accounts-container');
-    checkEmpty();
-
-    const card = document.createElement('div');
-    card.className = 'account-card';
-    card.id = 'card-' + acc.id;
-
-    card.innerHTML = `
-      <div class="account-header">
-        <div class="account-name-wrap">
-          <div class="account-badge" id="acc-badge-${acc.id}">${acc.name.charAt(0).toUpperCase()}</div>
-          <span class="account-name" id="acc-name-${acc.id}" title="Duplaklikk az átnevezéshez">${escHtml(acc.name)}</span>
-        </div>
-        <div class="account-actions">
-          <button class="btn btn-ghost btn-sm" onclick="startRenameAccount('${acc.id}')" title="Átnevezés">✏️</button>
-          <button class="btn btn-danger btn-sm" onclick="deleteAccount('${acc.id}')" title="Törlés">🗑</button>
-        </div>
+    item.innerHTML = `
+      <div class="task-color-swatch" style="background:${task.color}" title="Szín módosítása">
+        <input class="task-color-input" type="color" value="${task.color}"
+               onchange="changeTaskColor('${task.id}', this.value)"
+               oninput="changeTaskColor('${task.id}', this.value)" />
       </div>
-      <div class="char-table-wrap" id="char-wrap-${acc.id}"></div>
-      <div class="add-char-row">
-        <input type="text" id="char-input-${acc.id}" placeholder="Karakter neve…" maxlength="40"
-               onkeydown="if(event.key==='Enter') addCharacter('${acc.id}')"/>
-        <button class="btn btn-purple btn-sm" onclick="addCharacter('${acc.id}')">+ Karakter</button>
-      </div>
+      <span class="task-name-display" id="tname-${task.id}"
+            ondblclick="startRenameTask('${task.id}')"
+            title="Duplaklikk az átnevezéshez">${escHtml(task.name)}</span>
+      <span class="task-count-badge">${checkCount} pipa</span>
+      <button class="btn btn-ghost btn-sm" onclick="startRenameTask('${task.id}')" title="Átnevezés">✏️</button>
+      <button class="btn btn-danger" style="padding:3px 8px;font-size:11px;"
+              onclick="deleteTask('${task.id}')" title="Task törlése">✕</button>
     `;
+    listEl.appendChild(item);
+  });
+}
 
-    container.appendChild(card);
-    document.getElementById('acc-name-' + acc.id).ondblclick = () => startRenameAccount(acc.id);
-    renderCharTable(acc.id);
+function addTask() {
+  if (state.tasks.length >= MAX_TASKS) { showToast('❗ Maximum 10 task lehet!'); return; }
+  const nameEl  = document.getElementById('new-task-name');
+  const colorEl = document.getElementById('new-task-color');
+  const name    = nameEl.value.trim();
+  if (!name) { showToast('❗ Kérlek, adj meg egy task nevet!'); return; }
+
+  const task = { id: uid('tsk'), name, color: colorEl.value };
+  state.tasks.push(task);
+  saveState();
+  nameEl.value = '';
+  renderTaskManager();
+  rerenderAllTables();
+  showToast(`✅ "${name}" task hozzáadva`);
+}
+
+function deleteTask(taskId) {
+  const task = state.tasks.find(t => t.id === taskId);
+  if (!task) return;
+
+  // Count total checked boxes for this task
+  let total = 0;
+  state.accounts.forEach(acc => acc.chars.forEach(ch => {
+    Object.values(ch.weeklyTasks || {}).forEach(week => {
+      Object.values(week).forEach(day => { if (day[taskId]) total++; });
+    });
+  }));
+
+  const warnMsg = total > 0
+    ? ` Ez ${total} meglévő pipát is töröl!`
+    : '';
+
+  showConfirm(
+    `Törlöd a "${task.name}" taskot?`,
+    `A task eltávolításra kerül az összes karaktertől.${warnMsg}`,
+    () => {
+      state.tasks = state.tasks.filter(t => t.id !== taskId);
+      // Remove task data from all chars
+      state.accounts.forEach(acc => acc.chars.forEach(ch => {
+        Object.values(ch.weeklyTasks || {}).forEach(week => {
+          Object.values(week).forEach(day => { delete day[taskId]; });
+        });
+      }));
+      saveState();
+      renderTaskManager();
+      rerenderAllTables();
+      showToast(`🗑 "${task.name}" task törölve`);
+    }
+  );
+}
+
+function changeTaskColor(taskId, color) {
+  const task = state.tasks.find(t => t.id === taskId);
+  if (!task) return;
+  task.color = color;
+  // Update swatch live
+  const swatch = document.querySelector(`#task-item-${taskId} .task-color-swatch`);
+  if (swatch) swatch.style.background = color;
+  saveState();
+  rerenderAllTables();
+}
+
+function startRenameTask(taskId) {
+  const task = state.tasks.find(t => t.id === taskId);
+  if (!task) return;
+  const nameEl = document.getElementById('tname-' + taskId);
+  if (!nameEl) return;
+  const oldName = task.name;
+
+  const inp = document.createElement('input');
+  inp.type = 'text';
+  inp.className = 'task-name-edit';
+  inp.value = oldName;
+  inp.maxLength = 30;
+  nameEl.replaceWith(inp);
+  inp.focus(); inp.select();
+
+  const finish = () => {
+    const newName = inp.value.trim() || oldName;
+    task.name = newName;
+    saveState();
+    const span = document.createElement('span');
+    span.className = 'task-name-display';
+    span.id = 'tname-' + taskId;
+    span.title = 'Duplaklikk az átnevezéshez';
+    span.textContent = newName;
+    span.ondblclick = () => startRenameTask(taskId);
+    inp.replaceWith(span);
+    rerenderAllTables();
+    showToast(`✏️ Task átnevezve: "${newName}"`);
+  };
+  inp.onblur = finish;
+  inp.onkeydown = e => {
+    if (e.key === 'Enter') inp.blur();
+    if (e.key === 'Escape') { inp.value = oldName; inp.blur(); }
+  };
+}
+
+// ── ACCOUNT CRUD ──
+function addAccount() {
+  const input = document.getElementById('new-account-input');
+  const name  = input.value.trim();
+  if (!name) { showToast('❗ Kérlek, adj meg egy fiók nevet!'); return; }
+  const account = { id: uid('acc'), name, chars: [] };
+  state.accounts.push(account);
+  saveState();
+  input.value = '';
+  accountWeekOffset[account.id] = 0;
+  renderAccount(account);
+  updateStats();
+  showToast(`✅ "${name}" fiók létrehozva`);
+}
+
+function deleteAccount(accountId) {
+  const acc = state.accounts.find(a => a.id === accountId);
+  if (!acc) return;
+  showConfirm(
+    `Törlöd a "${acc.name}" fiókot?`,
+    `Ez a ${acc.chars.length} karaktert és az összes feladatot is eltávolítja.`,
+    () => {
+      state.accounts = state.accounts.filter(a => a.id !== accountId);
+      saveState();
+      document.getElementById('card-' + accountId)?.remove();
+      updateStats(); checkEmpty();
+      showToast(`🗑 "${acc.name}" törölve`);
+    }
+  );
+}
+
+function startRenameAccount(accountId) {
+  const acc = state.accounts.find(a => a.id === accountId);
+  if (!acc) return;
+  const nameEl = document.getElementById('acc-name-' + accountId);
+  const oldName = acc.name;
+  const inp = document.createElement('input');
+  inp.type = 'text'; inp.className = 'account-name-input'; inp.value = oldName;
+  nameEl.replaceWith(inp); inp.focus(); inp.select();
+  const finish = () => {
+    const newName = inp.value.trim() || oldName;
+    acc.name = newName; saveState();
+    const span = document.createElement('span');
+    span.className = 'account-name'; span.id = 'acc-name-' + accountId;
+    span.textContent = newName; inp.replaceWith(span);
+    span.ondblclick = () => startRenameAccount(accountId);
+    document.getElementById('acc-badge-' + accountId).textContent = newName.charAt(0).toUpperCase();
+    showToast(`✏️ Átnevezve: "${newName}"`);
+  };
+  inp.onblur = finish;
+  inp.onkeydown = e => {
+    if (e.key === 'Enter') inp.blur();
+    if (e.key === 'Escape') { inp.value = oldName; inp.blur(); }
+  };
+}
+
+// ── CHARACTER CRUD ──
+function addCharacter(accountId) {
+  const inputEl = document.getElementById('char-input-' + accountId);
+  const name    = inputEl.value.trim();
+  if (!name) { showToast('❗ Kérlek, adj meg egy karakter nevet!'); return; }
+  const acc = state.accounts.find(a => a.id === accountId);
+  if (!acc) return;
+  const char = { id: uid('chr'), name, weeklyTasks: {} };
+  acc.chars.push(char);
+  saveState(); inputEl.value = '';
+  renderCharTable(accountId); updateStats();
+  showToast(`⚔ "${name}" karakter hozzáadva`);
+}
+
+function deleteCharacter(accountId, charId) {
+  const acc = state.accounts.find(a => a.id === accountId);
+  if (!acc) return;
+  const ch = acc.chars.find(c => c.id === charId);
+  if (!ch) return;
+  showConfirm(`Törlöd "${ch.name}" karaktert?`, 'A karakter összes feladatadata elvész.', () => {
+    acc.chars = acc.chars.filter(c => c.id !== charId);
+    if (activeChar[accountId] === charId) delete activeChar[accountId];
+    saveState(); renderCharTable(accountId); updateStats();
+    showToast(`🗑 "${ch.name}" törölve`);
+  });
+}
+
+// ── ACTIVE CHARACTER ──
+function toggleActiveChar(accountId, charId) {
+  if (activeChar[accountId] === charId) {
+    delete activeChar[accountId];
+  } else {
+    activeChar[accountId] = charId;
+  }
+  // Update highlight without full re-render
+  const acc = state.accounts.find(a => a.id === accountId);
+  if (!acc) return;
+  acc.chars.forEach(ch => {
+    const el = document.getElementById('char-top-' + ch.id);
+    if (el) {
+      el.classList.toggle('active-char', activeChar[accountId] === ch.id);
+    }
+  });
+}
+
+// ── TASK TOGGLE ──
+function toggleWeeklyTask(accountId, charId, weekKey, dayKey, taskId, checked) {
+  const acc = state.accounts.find(a => a.id === accountId);
+  if (!acc) return;
+  const ch = acc.chars.find(c => c.id === charId);
+  if (!ch) return;
+  if (!ch.weeklyTasks) ch.weeklyTasks = {};
+  if (!ch.weeklyTasks[weekKey]) ch.weeklyTasks[weekKey] = {};
+  if (!ch.weeklyTasks[weekKey][dayKey]) ch.weeklyTasks[weekKey][dayKey] = {};
+  ch.weeklyTasks[weekKey][dayKey][taskId] = checked;
+  saveState();
+}
+
+// ── WEEK NAVIGATION ──
+function changeWeek(accountId, delta) {
+  accountWeekOffset[accountId] = (accountWeekOffset[accountId] || 0) + delta;
+  renderCharTable(accountId);
+}
+function goToCurrentWeek(accountId) {
+  accountWeekOffset[accountId] = 0;
+  renderCharTable(accountId);
+}
+
+// ── RESET ──
+function confirmReset(type) {
+  const isDaily = type === 'daily';
+  showConfirm(
+    isDaily ? '🌅 Napi Reset' : '📅 Heti Reset',
+    isDaily
+      ? 'Ez eltávolítja a mai nap összes pipáját minden karakternél és minden tasknál. A többi nap megmarad.'
+      : 'Ez törli az aktuális hét összes napjának összes pipáját. A többi hét megmarad.',
+    () => {
+      performReset(type);
+      const now = new Date().toISOString();
+      if (isDaily) { state.lastDailyReset = now; showToast('🌅 Napi reset végrehajtva!'); }
+      else         { state.lastWeeklyReset = now; showToast('📅 Heti reset végrehajtva!'); }
+      saveState(); updateResetTimestamps();
+      state.accounts.forEach(acc => renderCharTable(acc.id));
+    }
+  );
+}
+function performReset(type) {
+  if (type === 'daily') {
+    const wk  = getWeekKey(new Date());
+    const dk  = todayDayKey();
+    state.accounts.forEach(acc => acc.chars.forEach(ch => {
+      if (ch.weeklyTasks?.[wk]?.[dk]) {
+        ch.weeklyTasks[wk][dk] = {};
+      }
+    }));
+  } else {
+    const wk = getWeekKey(new Date());
+    state.accounts.forEach(acc => acc.chars.forEach(ch => {
+      if (ch.weeklyTasks?.[wk]) delete ch.weeklyTasks[wk];
+    }));
+  }
+}
+
+// ── RENDER ──
+function rerenderAllTables() {
+  state.accounts.forEach(acc => renderCharTable(acc.id));
+}
+
+function renderAll() {
+  document.getElementById('accounts-container').innerHTML = '';
+  state.accounts.forEach(acc => {
+    accountWeekOffset[acc.id] = 0;
+    renderAccount(acc);
+  });
+  updateStats(); updateResetTimestamps(); checkEmpty();
+}
+
+function renderAccount(acc) {
+  checkEmpty();
+  const container = document.getElementById('accounts-container');
+  const card = document.createElement('div');
+  card.className = 'account-card';
+  card.id = 'card-' + acc.id;
+
+  card.innerHTML = `
+    <div class="account-header">
+      <div class="account-name-wrap">
+        <div class="account-badge" id="acc-badge-${acc.id}">${acc.name.charAt(0).toUpperCase()}</div>
+        <span class="account-name" id="acc-name-${acc.id}" title="Duplaklikk az átnevezéshez">${escHtml(acc.name)}</span>
+      </div>
+      <div class="account-actions">
+        <button class="btn btn-ghost btn-sm" onclick="startRenameAccount('${acc.id}')" title="Átnevezés">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteAccount('${acc.id}')" title="Törlés">🗑</button>
+      </div>
+    </div>
+    <div class="char-table-wrap" id="char-wrap-${acc.id}"></div>
+    <div class="add-char-row">
+      <input type="text" id="char-input-${acc.id}" placeholder="Karakter neve…" maxlength="40"
+             onkeydown="if(event.key==='Enter') addCharacter('${acc.id}')"/>
+      <button class="btn btn-purple btn-sm" onclick="addCharacter('${acc.id}')">+ Karakter</button>
+    </div>
+  `;
+
+  container.appendChild(card);
+  document.getElementById('acc-name-' + acc.id).ondblclick = () => startRenameAccount(acc.id);
+  renderCharTable(acc.id);
+}
+
+function renderCharTable(accountId) {
+  const acc  = state.accounts.find(a => a.id === accountId);
+  const wrap = document.getElementById('char-wrap-' + accountId);
+  if (!acc || !wrap) return;
+
+  const offset      = accountWeekOffset[accountId] || 0;
+  const weekDates   = getWeekDates(offset);
+  const weekKey     = getWeekKey(weekDates[0]);
+  const weekRange   = fmtDate(weekDates[0]) + ' – ' + fmtDate(weekDates[6]);
+  const isCurrentWeek = offset === 0;
+  const tasks       = state.tasks;
+
+  if (acc.chars.length === 0) {
+    wrap.innerHTML = `<div style="padding:12px 8px 4px;text-align:center;color:var(--text-dim);font-family:var(--font-mono);font-size:11px;">— Még nincs karakter ebben a fiókban —</div>`;
+    return;
   }
 
-  function renderCharTable(accountId) {
-    const acc = state.accounts.find(a => a.id === accountId);
-    const wrap = document.getElementById('char-wrap-' + accountId);
-    if (!acc || !wrap) return;
+  // Day header row
+  const dayHeaders = weekDates.map((d,i) => {
+    const cls = isToday(d) ? ' today today-border' : (isPast(d) ? ' past' : '');
+    return `<th class="day-col${cls}">
+      <div class="day-col-inner">
+        <span class="day-col-name">${DAY_NAMES[i]}</span>
+        <span class="day-col-date">${fmtDate(d)}</span>
+      </div>
+    </th>`;
+  }).join('');
 
-    const offset = accountWeekOffset[accountId] || 0;
-    const weekDates = getWeekDates(offset);
-    const weekKey = getWeekKey(weekDates[0]);
-    const weekRange = fmtDate(weekDates[0]) + ' – ' + fmtDate(weekDates[6]);
-    const isCurrentWeek = (offset === 0);
+  // Task legend for the header
+  const legendItems = tasks.map(t =>
+    `<span style="display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:${t.color};">
+       <span style="width:8px;height:8px;border-radius:2px;background:${t.color}22;border:1px solid ${t.color};display:inline-block;"></span>
+       ${escHtml(t.name)}
+     </span>`
+  ).join('');
 
-    if (acc.chars.length === 0) {
-      wrap.innerHTML = `
-        <div style="padding:12px 8px 4px; text-align:center; color:var(--text-dim); font-family:var(--font-mono); font-size:11px;">
-          — Még nincs karakter ebben a fiókban —
-        </div>`;
-      return;
-    }
+  // Character rows
+  const rows = acc.chars.map(ch => {
+    const weekData = ch.weeklyTasks?.[weekKey] || {};
+    const isActive = activeChar[accountId] === ch.id;
 
-    // Build day header cells
-    const dayHeaders = weekDates.map((d, i) => {
-      const todayClass = isToday(d) ? ' today today-border' : (isPast(d) ? ' past' : '');
-      return `<th class="day-col${todayClass}">
-        <div class="day-col-inner">
-          <span class="day-col-name">${DAY_NAMES[i]}</span>
-          <span class="day-col-date">${fmtDate(d)}</span>
-        </div>
-      </th>`;
-    }).join('');
+    // Task label column (in name cell)
+    const taskLabels = tasks.map(t =>
+      `<span class="task-label" style="color:${t.color};">
+         <span class="task-label-dot" style="background:${t.color};"></span>${escHtml(t.name)}
+       </span>`
+    ).join('');
 
-    // Build character rows — each row has stacked dual checkboxes per day
-    const rows = acc.chars.map(ch => {
-      const weeklyData = (ch.tasks.weeklyTasks && ch.tasks.weeklyTasks[weekKey]) || {};
+    // Day cells — one checkbox per task per day
+    const dayCells = weekDates.map((d,i) => {
+      const dayKey  = DAY_KEYS[i];
+      const dayData = weekData[dayKey] || {};
+      const pastCls = isPast(d) && !isToday(d) ? ' past' : '';
 
-      const dayCells = weekDates.map((d, i) => {
-        const dayKey = DAY_KEYS[i];
-        const dayData = weeklyData[dayKey] || { latok: false, szilank: false };
-        const pastClass = isPast(d) && !isToday(d) ? ' past' : '';
-        const latokChecked = dayData.latok ? 'checked' : '';
-        const szilankChecked = dayData.szilank ? 'checked' : '';
-
-        return `<td class="day-cell">
-          <div class="day-cell-stack">
-            <label class="cb-wrap cb-day${pastClass}" title="${DAY_FULL[i]} – Látók Párbaja">
-              <input type="checkbox" ${latokChecked}
-                     onchange="toggleWeeklyTask('${acc.id}','${ch.id}','${weekKey}','${dayKey}','latok',this.checked)"/>
-              <span class="cb-box"></span>
-            </label>
-            <label class="cb-wrap cb-szilank${pastClass}" title="${DAY_FULL[i]} – Szilizés">
-              <input type="checkbox" ${szilankChecked}
-                     onchange="toggleWeeklyTask('${acc.id}','${ch.id}','${weekKey}','${dayKey}','szilank',this.checked)"/>
-              <span class="cb-box"></span>
-            </label>
-          </div>
-        </td>`;
+      const checkboxes = tasks.map(t => {
+        const checked = dayData[t.id] ? 'checked' : '';
+        return `<label class="cb-wrap cb-dyn${pastCls}"
+                       style="--cb-color:${t.color}"
+                       title="${DAY_FULL[i]} – ${escHtml(t.name)}">
+                  <input type="checkbox" ${checked}
+                         onchange="toggleWeeklyTask('${acc.id}','${ch.id}','${weekKey}','${dayKey}','${t.id}',this.checked)"/>
+                  <span class="cb-box"></span>
+                </label>`;
       }).join('');
 
-      return `
-        <tr>
-          <td>
-            <div class="char-name-cell">
-              <div class="char-name-top">
-                <div class="char-dot"></div>
-                <span class="char-name">${escHtml(ch.name)}</span>
-              </div>
-              <div class="char-task-labels">
-                <span class="task-label task-label-latok">
-                  <span class="task-label-dot task-label-dot-gold"></span>Látók
-                </span>
-                <span class="task-label task-label-szilank">
-                  <span class="task-label-dot task-label-dot-purple"></span>Szilizés
-                </span>
-              </div>
-            </div>
-          </td>
-          ${dayCells}
-          <td style="text-align:right; padding-right:4px; vertical-align:middle;">
-            <button class="btn btn-danger" style="padding:3px 8px;font-size:11px;"
-                    onclick="deleteCharacter('${acc.id}','${ch.id}')" title="Karakter törlése">✕</button>
-          </td>
-        </tr>`;
+      return `<td class="day-cell"><div class="day-cell-stack">${checkboxes}</div></td>`;
     }).join('');
 
-    const todayBtnHtml = !isCurrentWeek
-      ? `<button class="wn-today-btn" onclick="goToCurrentWeek('${accountId}')">Ma</button>`
-      : '';
+    return `
+      <tr>
+        <td>
+          <div class="char-name-cell" onclick="toggleActiveChar('${acc.id}','${ch.id}')" title="Kattints az aktív kiemeléshez">
+            <div class="char-name-top${isActive ? ' active-char' : ''}" id="char-top-${ch.id}">
+              <div class="char-dot"></div>
+              <span class="char-name">${escHtml(ch.name)}</span>
+            </div>
+            <div class="char-task-labels">${taskLabels}</div>
+          </div>
+        </td>
+        ${dayCells}
+        <td style="text-align:right;padding-right:4px;vertical-align:middle;">
+          <button class="btn btn-danger" style="padding:3px 8px;font-size:11px;"
+                  onclick="deleteCharacter('${acc.id}','${ch.id}')" title="Karakter törlése">✕</button>
+        </td>
+      </tr>`;
+  }).join('');
 
-    const weekLabel = isCurrentWeek
-      ? `Aktuális hét · ${weekRange}`
-      : (offset > 0 ? `+${offset} hét · ${weekRange}` : `${offset} hét · ${weekRange}`);
+  const todayBtn  = !isCurrentWeek ? `<button class="wn-today-btn" onclick="goToCurrentWeek('${accountId}')">Ma</button>` : '';
+  const weekLabel = isCurrentWeek
+    ? `Aktuális hét · ${weekRange}`
+    : (offset > 0 ? `+${offset} hét · ${weekRange}` : `${offset} hét · ${weekRange}`);
 
-    wrap.innerHTML = `
-      <table class="char-table">
-        <thead>
-          <tr>
-            <th style="min-width:130px;">Karakter</th>
-            <th colspan="7" style="text-align:center; padding-bottom:2px;">
-              <div style="display:flex;align-items:center;justify-content:center;gap:6px;padding-bottom:4px;">
-                <button class="wn-btn" onclick="changeWeek('${accountId}', -1)" title="Előző hét">◀</button>
-                <span style="font-family:var(--font-mono);font-size:10px;color:var(--gold-bright);">🗓 Heti feladatok</span>
-                <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);">${weekLabel}</span>
-                ${todayBtnHtml}
-                <button class="wn-btn" onclick="changeWeek('${accountId}', 1)" title="Következő hét">▶</button>
-              </div>
-              <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding-top:2px;padding-bottom:2px;">
-                <span style="display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--gold-mid);">
-                  <span style="width:8px;height:8px;border-radius:2px;background:var(--gold-dim);border:1px solid var(--gold-mid);display:inline-block;"></span>
-                  Látók Párbaja
-                </span>
-                <span style="display:flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:9px;color:var(--text-purple);">
-                  <span style="width:8px;height:8px;border-radius:2px;background:var(--purple-dim);border:1px solid var(--purple-mid);display:inline-block;"></span>
-                  Szilizés
-                </span>
-              </div>
-            </th>
-            <th></th>
-          </tr>
-          <tr>
-            <th></th>
-            ${dayHeaders}
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>`;
-  }
+  const noTasks = tasks.length === 0;
+  const colSpan = 7;
 
-  // ============================================================
-  //  STATS & HELPERS
-  // ============================================================
+  wrap.innerHTML = `
+    <table class="char-table">
+      <thead>
+        <tr>
+          <th style="min-width:140px;">Karakter</th>
+          <th colspan="${colSpan}" style="text-align:center;padding-bottom:2px;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:6px;padding-bottom:4px;">
+              <button class="wn-btn" onclick="changeWeek('${accountId}',-1)" title="Előző hét">◀</button>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gold-bright);">🗓 Heti feladatok</span>
+              <span style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);">${weekLabel}</span>
+              ${todayBtn}
+              <button class="wn-btn" onclick="changeWeek('${accountId}',1)" title="Következő hét">▶</button>
+            </div>
+            ${noTasks
+              ? `<div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);padding-bottom:4px;">⚙ Adj hozzá taskot a Task Managerben!</div>`
+              : `<div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding-top:2px;padding-bottom:2px;">${legendItems}</div>`
+            }
+          </th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          ${dayHeaders}
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
 
-  function updateStats() {
-    const totalAccounts = state.accounts.length;
-    const totalChars = state.accounts.reduce((s, a) => s + a.chars.length, 0);
-    document.getElementById('chip-accounts-text').textContent = totalAccounts + ' fiók';
-    document.getElementById('chip-chars-text').textContent = totalChars + ' karakter';
-  }
+// ── STATS ──
+function updateStats() {
+  const ta = state.accounts.length;
+  const tc = state.accounts.reduce((s,a) => s + a.chars.length, 0);
+  document.getElementById('chip-accounts-text').textContent = ta + ' fiók';
+  document.getElementById('chip-chars-text').textContent    = tc + ' karakter';
+}
+function updateResetTimestamps() {
+  document.getElementById('reset-timestamps').innerHTML = `
+    <span>Napi reset: ${formatDate(state.lastDailyReset)}</span>
+    <span>Heti reset: ${formatDate(state.lastWeeklyReset)}</span>`;
+}
+function formatDate(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  return d.toLocaleDateString('hu-HU',{month:'short',day:'numeric'})
+       + ' ' + d.toLocaleTimeString('hu-HU',{hour:'2-digit',minute:'2-digit'});
+}
+function checkEmpty() {
+  document.getElementById('empty-state').style.display = state.accounts.length === 0 ? 'block' : 'none';
+}
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
-  function updateResetTimestamps() {
-    const el = document.getElementById('reset-timestamps');
-    el.innerHTML = `
-      <span>Napi reset: ${formatDate(state.lastDailyReset)}</span>
-      <span>Heti reset: ${formatDate(state.lastWeeklyReset)}</span>
-    `;
-  }
+// ── TOAST ──
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.style.display = 'block';
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.style.display = 'none', 2800);
+}
 
-  function formatDate(iso) {
-    if (!iso) return '—';
-    const d = new Date(iso);
-    return d.toLocaleDateString('hu-HU', { month:'short', day:'numeric' })
-      + ' ' + d.toLocaleTimeString('hu-HU', { hour:'2-digit', minute:'2-digit' });
-  }
+// ── CONFIRM MODAL ──
+function showConfirm(title, body, onConfirm) {
+  document.getElementById('confirm-modal-overlay')?.remove();
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay'; overlay.id = 'confirm-modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal">
+      <div class="modal-title">${title}</div>
+      <div class="modal-body">${body}</div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="modal-cancel">Mégse</button>
+        <button class="btn btn-danger" style="padding:8px 18px;font-size:13px;" id="modal-confirm">Megerősítés</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  document.getElementById('modal-cancel').onclick  = () => overlay.remove();
+  document.getElementById('modal-confirm').onclick = () => { overlay.remove(); onConfirm(); };
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+}
 
-  function checkEmpty() {
-    const empty = document.getElementById('empty-state');
-    empty.style.display = state.accounts.length === 0 ? 'block' : 'none';
-  }
+// ── KEYBOARD ──
+document.getElementById('new-account-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') addAccount();
+});
 
-  function escHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  // ============================================================
-  //  TOAST
-  // ============================================================
-
-  let toastTimer = null;
-
-  function showToast(msg) {
-    const el = document.getElementById('toast');
-    el.textContent = msg;
-    el.style.display = 'block';
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { el.style.display = 'none'; }, 2800);
-  }
-
-  // ============================================================
-  //  CONFIRM MODAL
-  // ============================================================
-
-  function showConfirm(title, body, onConfirm) {
-    const existing = document.getElementById('confirm-modal-overlay');
-    if (existing) existing.remove();
-
-    const overlay = document.createElement('div');
-    overlay.className = 'modal-overlay';
-    overlay.id = 'confirm-modal-overlay';
-
-    overlay.innerHTML = `
-      <div class="modal">
-        <div class="modal-title">${title}</div>
-        <div class="modal-body">${body}</div>
-        <div class="modal-actions">
-          <button class="btn btn-ghost" id="modal-cancel">Mégse</button>
-          <button class="btn btn-danger" style="padding:8px 18px;font-size:13px;" id="modal-confirm">Megerősítés</button>
-        </div>
-      </div>`;
-
-    document.body.appendChild(overlay);
-
-    document.getElementById('modal-cancel').onclick = () => overlay.remove();
-    document.getElementById('modal-confirm').onclick = () => { overlay.remove(); onConfirm(); };
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
-  }
-
-  // ============================================================
-  //  KEYBOARD
-  // ============================================================
-  document.getElementById('new-account-input').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') addAccount();
-  });
-
-  // ============================================================
-  //  INIT
-  // ============================================================
-  renderAll();
+// ── INIT ──
+renderAll();
 </script>
 </body>
 </html>
